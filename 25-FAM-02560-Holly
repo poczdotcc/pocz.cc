@@ -1,1 +1,623 @@
+<div id="dvro-typewriter-wrapper">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Special+Elite&display=swap');
 
+    #dvro-typewriter-wrapper {
+      --paper-bg: #f4efe6;
+      --card-bg: #fbf8f1;
+      --ink-black: #1c1b18;
+      --ink-faded: #57534a;
+      --ribbon-red: #9b2226;
+      --stamp-green: #2d5a27;
+      --border-ink: #b8b0a0;
+
+      font-family: 'Courier Prime', 'Courier New', Courier, monospace;
+      background-color: var(--paper-bg);
+      background-image: radial-gradient(rgba(28, 27, 24, 0.04) 1px, transparent 0);
+      background-size: 16px 16px;
+      color: var(--ink-black);
+      padding: 28px 24px;
+      max-width: 820px;
+      margin: 0 auto;
+      border: 2px solid var(--ink-black);
+      box-shadow: 6px 6px 0px rgba(28, 27, 24, 0.18);
+      line-height: 1.55;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    #dvro-typewriter-wrapper *,
+    #dvro-typewriter-wrapper *::before,
+    #dvro-typewriter-wrapper *::after {
+      box-sizing: border-box;
+    }
+
+    /* Top Dossier Header */
+    .tw-header {
+      background: var(--card-bg);
+      border: 1.5px solid var(--ink-black);
+      padding: 20px;
+      margin-bottom: 26px;
+      position: relative;
+    }
+
+    .tw-header::before {
+      content: "DOCKET FILE // INTERNAL LEGAL CHECKLIST";
+      display: block;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: var(--ink-faded);
+      border-bottom: 1px dashed var(--border-ink);
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+
+    .tw-header-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .tw-title {
+      font-family: 'Special Elite', 'Courier Prime', monospace;
+      color: var(--ink-black);
+      margin: 0;
+      font-size: 23px;
+      letter-spacing: 0.5px;
+      font-weight: 400;
+    }
+
+    .tw-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tw-badge {
+      background: transparent;
+      color: var(--ink-black);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border: 1.5px solid var(--ink-black);
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.15s ease;
+    }
+
+    .tw-badge:hover {
+      background: rgba(28, 27, 24, 0.08);
+    }
+
+    .tw-badge.ribbon-red {
+      color: var(--ribbon-red);
+      border-color: var(--ribbon-red);
+      cursor: default;
+    }
+
+    .tw-subtitle {
+      margin: 0;
+      font-size: 13.5px;
+      color: var(--ink-faded);
+    }
+
+    .tw-subtitle strong {
+      color: var(--ink-black);
+      text-decoration: underline;
+    }
+
+    /* Mechanical Progress Bar */
+    .tw-progress-wrap {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border-ink);
+    }
+
+    .tw-progress-container {
+      background: #e5dec9;
+      border: 1px solid var(--ink-black);
+      height: 12px;
+      width: 100%;
+      padding: 1px;
+    }
+
+    .tw-progress-bar {
+      background: repeating-linear-gradient(
+        45deg,
+        var(--ink-black),
+        var(--ink-black) 6px,
+        #3d3a33 6px,
+        #3d3a33 12px
+      );
+      height: 100%;
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .tw-progress-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--ink-black);
+      font-weight: 700;
+    }
+
+    /* Section Headers */
+    .tw-section-title {
+      font-family: 'Special Elite', 'Courier Prime', monospace;
+      color: var(--ribbon-red);
+      margin-top: 28px;
+      margin-bottom: 12px;
+      font-size: 15px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      border-bottom: 1.5px solid var(--ink-black);
+      padding-bottom: 4px;
+    }
+
+    /* Task Sheets */
+    .tw-task-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-ink);
+      border-left: 4px solid var(--ink-black);
+      padding: 15px 16px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      cursor: pointer;
+      transition: transform 0.1s ease, background-color 0.2s ease;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tw-task-card:hover {
+      background: #fffdf9;
+      border-color: var(--ink-black);
+      transform: translateX(2px);
+    }
+
+    /* Custom Typewriter Key/Box Checkbox */
+    .tw-checkbox-box {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--ink-black);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .tw-task-card input[type="checkbox"] {
+      display: none;
+    }
+
+    .tw-task-content {
+      flex: 1;
+      padding-right: 10px;
+    }
+
+    .tw-task-title {
+      font-weight: 700;
+      font-size: 15.5px;
+      margin-bottom: 4px;
+      color: var(--ink-black);
+    }
+
+    .tw-task-desc {
+      font-size: 13.5px;
+      color: var(--ink-faded);
+    }
+
+    .tw-timestamp {
+      display: none;
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--stamp-green);
+    }
+
+    /* Completed Rubber Stamp State */
+    .tw-task-card.completed {
+      background-color: #efeadf;
+      border-left-color: var(--stamp-green);
+    }
+
+    .tw-task-card.completed .tw-task-title,
+    .tw-task-card.completed .tw-task-desc {
+      text-decoration: line-through;
+      text-decoration-color: var(--ribbon-red);
+      text-decoration-thickness: 1.5px;
+      color: #827c70;
+    }
+
+    .tw-task-card.completed .tw-timestamp {
+      display: block;
+    }
+
+    .tw-stamp {
+      display: none;
+      font-family: 'Special Elite', monospace;
+      color: var(--stamp-green);
+      border: 2px solid var(--stamp-green);
+      padding: 2px 8px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transform: rotate(-4deg);
+      opacity: 0.85;
+      align-self: center;
+      flex-shrink: 0;
+    }
+
+    .tw-task-card.completed .tw-stamp {
+      display: inline-block;
+    }
+
+    /* Action Buttons */
+    .tw-footer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+      padding-top: 16px;
+      border-top: 1.5px dashed var(--ink-black);
+    }
+
+    .tw-btn {
+      font-family: 'Courier Prime', monospace;
+      background: var(--card-bg);
+      border: 1.5px solid var(--ink-black);
+      color: var(--ink-black);
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 2px 2px 0px var(--ink-black);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .tw-btn:hover {
+      background: #ebe4d5;
+    }
+
+    .tw-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px var(--ink-black);
+    }
+
+    .tw-btn-primary {
+      background: var(--ink-black);
+      color: var(--card-bg);
+    }
+
+    .tw-btn-primary:hover {
+      background: #33312c;
+    }
+
+    /* Toast Notification */
+    .tw-toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--ink-black);
+      color: var(--card-bg);
+      border: 1.5px solid var(--card-bg);
+      padding: 10px 16px;
+      font-family: 'Courier Prime', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 9999;
+    }
+
+    .tw-toast.show {
+      opacity: 1;
+    }
+
+    @media print {
+      #dvro-typewriter-wrapper {
+        background: #fff !important;
+        box-shadow: none !important;
+        border: 1px solid #000;
+        padding: 12px;
+      }
+      .tw-footer-actions,
+      .tw-toast {
+        display: none !important;
+      }
+      .tw-task-card {
+        break-inside: avoid;
+        background: #fff !important;
+      }
+    }
+  </style>
+
+  <div class="tw-header">
+    <div class="tw-header-top">
+      <h2 class="tw-title">Pre-Hearing Action Checklist</h2>
+      <div class="tw-badges">
+        <span class="tw-badge" onclick="twCopyCaseNo()" title="Click to copy Case Number">[ CASE: 25-FAM-02560 ]</span>
+        <span class="tw-badge ribbon-red" id="twCountdown">HEARING: DEC 03, 2026</span>
+      </div>
+    </div>
+    <p class="tw-subtitle">Strike any item to log completion. Progress saves locally and dispatches an email notice to <strong>LauraMaryNashFurniss260129@gmail.com</strong>.</p>
+   
+    <div class="tw-progress-wrap">
+      <div class="tw-progress-container">
+        <div class="tw-progress-bar" id="twProgressBar"></div>
+      </div>
+      <div class="tw-progress-meta">
+        <span id="twStatusLabel">STATUS: IN PROGRESS</span>
+        <span id="twProgressText">0 / 8 COMPLETED (0%)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tw-section-title">I. Order Continuance &amp; CLETS Protection</div>
+
+  <div class="tw-task-card" data-id="task1" onclick="twToggleCard(this)">
+    <input type="checkbox" data-title="Verify Minute Order Extension of TRO" data-desc="Confirmed that the Oct 29, 2026 Minute Order formally extends the Temporary Restraining Order (DV-110) through Dec 03, 2026.">
+    <div class="tw-checkbox-box">[ ]</div>
+    <div class="tw-task-content">
+      <div class="tw-task-title">Verify Minute Order Extension of TRO</div>
+      <div class="tw-task-desc">Obtain court minutes from the Oct 29, 2026 hearing to confirm the judge extended the TRO (DV-110) through Dec 03, 2026.</div>
+      <div class="tw-timestamp"></div>
+    </div>
+    <div class="tw-stamp">CLEARED</div>
+  </div>
+
+  <div class="tw-task-card" data-id="task2" onclick="twToggleCard(this)">
+    <input type="checkbox" data-title="Confirm CLETS / CARPOS Database Entry" data-desc="Verified that law enforcement registered Form DV-116/TRO extension in CLETS/CARPOS without coverage gaps.">
+    <div class="tw-checkbox-box">[ ]</div>
+    <div class="tw-task-content">
+      <div class="tw-task-title">Confirm CLETS / CARPOS Entry</div>
+      <div class="tw-task-desc">Ensure the extension order was submitted to law enforcement for CLETS update so protection remains active.</div>
+      <div class="tw-timestamp"></div>
+    </div>
+    <div class="tw-stamp">CLEARED</div>
+  </div>
+
+  <div class="tw-section-title">II. Proof of Service Audit</div>
+
+  <div class="tw-task-card" data-id="task3" onclick="twToggleCard(this)">
+    <input type="checkbox" data-title="Audit Filed Form DV-200 (Chicago, IL Service)" data-desc="Audited filed Proof of Personal Service (served Sep 24, 2026 in Chicago, IL / filed Sep 29, 2026).">
+    <div class="tw-checkbox-box">[ ]</div>
+    <div class="tw-task-content">
+      <div class="tw-task-title">Audit Form DV-200 (Chicago Service)</div>
+      <div class="tw-task-desc">Verify file-stamped Proof of Service (served Sep 24, 2026; filed Sep 29, 2026) for DV-700/710/716 is ready in binder.</div>
+      <div class="tw-timestamp"></div>
+    </div>
+    <div class="tw-stamp">CLEARED</div>
+  </div>
+
+  <div class="tw-task-card" data-id="task4" onclick="twToggleCard(this)">
+    <input type="checkbox" data-title="Audit Filed Form DV-200 (St. Joseph, MI Service)" data-desc="Audited filed Proof of Personal Service (served Sep 30, 2026 in St. Joseph, MI / filed Oct 01, 2026).">
+    <div class="tw-checkbox-box">[ ]</div>
+    <div class="tw-task-content">
+      <div class="tw-task-title">Audit Form DV-200 (Michigan Service)</div>
+      <div class="tw-task-desc">Verify file-stamped Proof of Service (served Sep 30, 2026; filed Oct 01, 2026) for supplemental papers is logged.</div>
+      <div class="tw-timestamp"></div>
+    </div>
+    <div class="tw-stamp">CLEARED</div>
+  </div>
+
+  <div class="tw-section-title">III. Pre-Hearing Order &amp; Exhibit Preparation</div>
+
+  <div class="tw-task-card" data-id="task5" onclick="twToggleCard(this)">
+    <input type="checkbox" data-title="Pre-Fill Form DV-730 (Order Renewing Restraining Order)" data-desc="Pre-filled Form DV-730 with all requested conduct, 100-yard stay-away, move-out, and custody orders.">
+    <div class="tw-checkbox-box">[ ]</div>
+    <div class="tw-task-content">
+      <div class="tw-task-title">Pre-Fill Form DV-730 (Renewal Order)</div>
+      <div class="tw-task-desc">Complete draft of Form DV-730 including conduct, 100-yard stay-away, vehicle control (2025 Toyota Sienna), and sole custody.</div>
+      <div class="tw-timestamp"></div>
+    </div>
+    <div class="tw-stamp">CLEARED</div>
+  </div>
+
+  <div class="tw-task-card" data-id="task6" onclick="twToggleCard(this)">
+    <input type="checkbox" data-title="Assemble Evidentiary Hearing Binder" data-desc="Compiled evidentiary binder under Fam. Code § 6345 demonstrating reasonable continuation of fear.">
+    <div class="tw-checkbox-box">[ ]</div>
+    <div class="tw-task-content">
+      <div class="tw-task-title">Assemble Evidentiary Hearing Binder</div>
+      <div class="tw-task-desc">Organize exhibits demonstrating reasonable continuation of fear under Fam. Code &sect; 6345 (prior order history, declaration details).</div>
+      <div class="tw-timestamp"></div>
+    </div>
+    <div class="tw-stamp">CLEARED</div>
+  </div>
+
+  <div class="tw-section-title">IV. Post-Hearing Enforcement (Dec 03, 2026)</div>
+
+  <div class="tw-task-card" data-id="task7" onclick="twToggleCard(this)">
+    <input type="checkbox" data-title="Submit DV-730 for Judicial Signature" data-desc="Submitted signed Form DV-730 to court clerk immediately following Dec 03 hearing.">
+    <div class="tw-checkbox-box">[ ]</div>
+    <div class="tw-task-content">
+      <div class="tw-task-title">Submit DV-730 for Judicial Signature</div>
+      <div class="tw-task-desc">Submit pre-filled Form DV-730 to the judge immediately upon granting the renewal on Dec 03, 2026.</div>
+      <div class="tw-timestamp"></div>
+    </div>
+    <div class="tw-stamp">CLEARED</div>
+  </div>
+
+  <div class="tw-task-card" data-id="task8" onclick="twToggleCard(this)">
+    <input type="checkbox" data-title="Serve Signed DV-730 & Submit to CLETS" data-desc="Transmitted signed Form DV-730 for service on Respondent and entry into law enforcement CLETS system.">
+    <div class="tw-checkbox-box">[ ]</div>
+    <div class="tw-task-content">
+      <div class="tw-task-title">Serve Signed DV-730 &amp; Transmit to CLETS</div>
+      <div class="tw-task-desc">Serve executed Form DV-730 on Respondent and submit copy to local law enforcement for CLETS entry.</div>
+      <div class="tw-timestamp"></div>
+    </div>
+    <div class="tw-stamp">CLEARED</div>
+  </div>
+
+  <div class="tw-footer-actions">
+    <button type="button" class="tw-btn tw-btn-primary" onclick="twCopySummary()">COPY DOCKET LOG</button>
+    <button type="button" class="tw-btn" onclick="window.print()">PRINT / SAVE PDF</button>
+    <button type="button" class="tw-btn" onclick="twResetChecklist()">RESET SHEET</button>
+  </div>
+
+  <div class="tw-toast" id="twToast">COPIED TO CLIPBOARD</div>
+
+  <script>
+    (function() {
+      const STORAGE_KEY = 'dvro_tw_checklist_25_FAM_02560';
+      const RECIPIENT = 'LauraMaryNashFurniss260129@gmail.com';
+      const HEARING_DATE = new Date('2026-12-03T08:30:00');
+
+      function showToast(msg) {
+        const toast = document.getElementById('twToast');
+        toast.textContent = msg.toUpperCase();
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      }
+
+      function updateCountdown() {
+        const badge = document.getElementById('twCountdown');
+        const now = new Date();
+        const diffDays = Math.ceil((HEARING_DATE - now) / (1000 * 60 * 60 * 24));
+        if (diffDays > 0) {
+          badge.textContent = `HEARING: DEC 03, 2026 (${diffDays}D LEFT)`;
+        } else if (diffDays === 0) {
+          badge.textContent = 'HEARING: TODAY (DEC 03, 2026)';
+        } else {
+          badge.textContent = 'HEARING: DEC 03, 2026';
+        }
+      }
+
+      window.twCopyCaseNo = function() {
+        navigator.clipboard.writeText('25-FAM-02560').then(() => {
+          showToast('Copied Case No. 25-FAM-02560');
+        });
+      };
+
+      window.twToggleCard = function(card) {
+        const checkbox = card.querySelector('input[type="checkbox"]');
+        checkbox.checked = !checkbox.checked;
+        processCheckboxState(checkbox, card, true);
+      };
+
+      function processCheckboxState(checkbox, card, triggerEmail) {
+        const title = checkbox.getAttribute('data-title');
+        const desc = checkbox.getAttribute('data-desc');
+        const tsEl = card.querySelector('.tw-timestamp');
+        const boxEl = card.querySelector('.tw-checkbox-box');
+
+        if (checkbox.checked) {
+          const nowStr = new Date().toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' });
+          card.classList.add('completed');
+          boxEl.textContent = '[X]';
+          tsEl.textContent = `LOGGED: ${nowStr}`;
+          if (triggerEmail) {
+            sendNotificationEmail(title, desc, nowStr);
+          }
+        } else {
+          card.classList.remove('completed');
+          boxEl.textContent = '[ ]';
+          tsEl.textContent = '';
+        }
+
+        saveProgress();
+        updateProgressUI();
+      }
+
+      function updateProgressUI() {
+        const cards = document.querySelectorAll('#dvro-typewriter-wrapper .tw-task-card');
+        let completed = 0;
+        cards.forEach(card => {
+          if (card.classList.contains('completed')) completed++;
+        });
+        const total = cards.length;
+        const pct = Math.round((completed / total) * 100);
+
+        document.getElementById('twProgressBar').style.width = pct + '%';
+        document.getElementById('twProgressText').textContent = `${completed} / ${total} COMPLETED (${pct}%)`;
+        document.getElementById('twStatusLabel').textContent = completed === total ? 'STATUS: ALL ITEMS CLEARED' : 'STATUS: IN PROGRESS';
+      }
+
+      function saveProgress() {
+        const state = {};
+        document.querySelectorAll('#dvro-typewriter-wrapper .tw-task-card').forEach(card => {
+          const id = card.getAttribute('data-id');
+          const checked = card.querySelector('input[type="checkbox"]').checked;
+          const timestamp = card.querySelector('.tw-timestamp').textContent;
+          state[id] = { checked, timestamp };
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      }
+
+      function loadProgress() {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const state = JSON.parse(raw);
+        document.querySelectorAll('#dvro-typewriter-wrapper .tw-task-card').forEach(card => {
+          const id = card.getAttribute('data-id');
+          if (state[id] && state[id].checked) {
+            const cb = card.querySelector('input[type="checkbox"]');
+            cb.checked = true;
+            card.classList.add('completed');
+            card.querySelector('.tw-checkbox-box').textContent = '[X]';
+            card.querySelector('.tw-timestamp').textContent = state[id].timestamp || 'LOGGED';
+          }
+        });
+        updateProgressUI();
+      }
+
+      window.twCopySummary = function() {
+        const lines = [
+          '====================================================',
+          'CASE NO. 25-FAM-02560 (DVRO) — PRE-HEARING AUDIT LOG',
+          `GENERATED: ${new Date().toLocaleString()}`,
+          '====================================================',
+          ''
+        ];
+        document.querySelectorAll('#dvro-typewriter-wrapper .tw-task-card').forEach((card, i) => {
+          const cb = card.querySelector('input[type="checkbox"]');
+          const title = cb.getAttribute('data-title');
+          const status = cb.checked ? `[X] ${card.querySelector('.tw-timestamp').textContent}` : '[ ] PENDING';
+          lines.push(`${i + 1}. ${title}\n    ${status}`);
+        });
+        navigator.clipboard.writeText(lines.join('\n')).then(() => {
+          showToast('Full docket log copied');
+        });
+      };
+
+      window.twResetChecklist = function() {
+        if (confirm('Clear all stamped items and reset this checklist?')) {
+          localStorage.removeItem(STORAGE_KEY);
+          document.querySelectorAll('#dvro-typewriter-wrapper .tw-task-card').forEach(card => {
+            card.querySelector('input[type="checkbox"]').checked = false;
+            card.classList.remove('completed');
+            card.querySelector('.tw-checkbox-box').textContent = '[ ]';
+            card.querySelector('.tw-timestamp').textContent = '';
+          });
+          updateProgressUI();
+          showToast('Docket sheet reset');
+        }
+      };
+
+      function sendNotificationEmail(taskTitle, taskDetails, timestamp) {
+        const subject = encodeURIComponent(`Completed Step [25-FAM-02560]: ${taskTitle}`);
+        const body = encodeURIComponent(
+          `Hello,\n\nThe following step for Case No. 25-FAM-02560 has been completed and struck from the checklist:\n\n` +
+          `STEP: ${taskTitle}\n` +
+          `DETAILS: ${taskDetails}\n\n` +
+          `STATUS: CLEARED\n` +
+          `TIMESTAMP: ${timestamp}`
+        );
+        setTimeout(() => {
+          window.location.href = `mailto:${RECIPIENT}?subject=${subject}&body=${body}`;
+        }, 120);
+      }
+
+      updateCountdown();
+      loadProgress();
+    })();
+  </script>
+</div>
