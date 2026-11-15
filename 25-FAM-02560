@@ -163,3 +163,461 @@
     /* Task Sheets */
     .tw-task-card {
       background: var(--card-bg);
+      border: 1px solid var(--border-ink);
+      border-left: 4px solid var(--ink-black);
+      padding: 15px 16px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      cursor: pointer;
+      transition: transform 0.1s ease, background-color 0.2s ease;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .tw-task-card:hover {
+      background: #fffdf9;
+      border-color: var(--ink-black);
+      transform: translateX(2px);
+    }
+
+    /* Custom Typewriter Key/Box Checkbox */
+    .tw-checkbox-box {
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--ink-black);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .tw-task-card input[type="checkbox"] {
+      display: none;
+    }
+
+    .tw-task-content {
+      flex: 1;
+      padding-right: 10px;
+    }
+
+    .tw-task-title {
+      font-weight: 700;
+      font-size: 15.5px;
+      margin-bottom: 4px;
+      color: var(--ink-black);
+    }
+
+    .tw-task-desc {
+      font-size: 13.5px;
+      color: var(--ink-faded);
+    }
+
+    .tw-timestamp {
+      display: none;
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--stamp-green);
+    }
+
+    /* Completed Rubber Stamp State */
+    .tw-task-card.completed {
+      background-color: #efeadf;
+      border-left-color: var(--stamp-green);
+    }
+
+    .tw-task-card.completed .tw-task-title,
+    .tw-task-card.completed .tw-task-desc {
+      text-decoration: line-through;
+      text-decoration-color: var(--ribbon-red);
+      text-decoration-thickness: 1.5px;
+      color: #827c70;
+    }
+
+    .tw-task-card.completed .tw-timestamp {
+      display: block;
+    }
+
+    .tw-stamp {
+      display: none;
+      font-family: 'Special Elite', monospace;
+      color: var(--stamp-green);
+      border: 2px solid var(--stamp-green);
+      padding: 2px 8px;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      transform: rotate(-4deg);
+      opacity: 0.85;
+      align-self: center;
+      flex-shrink: 0;
+    }
+
+    .tw-task-card.completed .tw-stamp {
+      display: inline-block;
+    }
+
+    /* Action Buttons */
+    .tw-footer-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+      padding-top: 16px;
+      border-top: 1.5px dashed var(--ink-black);
+    }
+
+    .tw-btn {
+      font-family: 'Courier Prime', monospace;
+      background: var(--card-bg);
+      border: 1.5px solid var(--ink-black);
+      color: var(--ink-black);
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 2px 2px 0px var(--ink-black);
+      transition: transform 0.1s ease, box-shadow 0.1s ease;
+    }
+
+    .tw-btn:hover {
+      background: #ebe4d5;
+    }
+
+    .tw-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 0px 0px 0px var(--ink-black);
+    }
+
+    .tw-btn-primary {
+      background: var(--ink-black);
+      color: var(--card-bg);
+    }
+
+    .tw-btn-primary:hover {
+      background: #33312c;
+    }
+
+    /* Toast Notification */
+    .tw-toast {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--ink-black);
+      color: var(--card-bg);
+      border: 1.5px solid var(--card-bg);
+      padding: 10px 16px;
+      font-family: 'Courier Prime', monospace;
+      font-size: 13px;
+      font-weight: 700;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease;
+      z-index: 9999;
+    }
+
+    .tw-toast.show {
+      opacity: 1;
+    }
+
+    @media print {
+      #dvro-typewriter-wrapper {
+        background: #fff !important;
+        box-shadow: none !important;
+        border: 1px solid #000;
+        padding: 12px;
+      }
+      .tw-footer-actions,
+      .tw-toast {
+        display: none !important;
+      }
+      .tw-task-card {
+        break-inside: avoid;
+        background: #fff !important;
+      }
+    }
+  </style>
+
+  <div class="tw-header">
+    <div class="tw-header-top">
+      <h2 class="tw-title">Respondent Pre-Hearing Checklist</h2>
+      <div class="tw-badges">
+        <span class="tw-badge" onclick="twCopyCaseNo()" title="Click to copy Case Number">[ CASE: 25-FAM-02560 ]</span>
+        <span class="tw-badge ribbon-red" id="twCountdown">HEARING: DEC 03, 2026</span>
+      </div>
+    </div>
+    <p class="tw-subtitle">Strike any item to log completion. Progress saves locally and dispatches an email notice to <strong>LauraMaryNashFurniss260129@gmail.com</strong>.</p>
+   
+    <div class="tw-progress-wrap">
+      <div class="tw-progress-container">
+        <div class="tw-progress-bar" id="twProgressBar"></div>
+      </div>
+      <div class="tw-progress-meta">
+        <span id="twStatusLabel">STATUS: IN PROGRESS</span>
+        <span id="twProgressText">0 / 8 COMPLETED (0%)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="tw-section-title">I. Active Order Compliance &amp; Firearm Rules</div>
+
+  <div class="tw-task-card" data-id="task1" onclick="twToggleCard(this)">
+    <input type="checkbox" data-title="Maintain Strict Compliance With Extended TRO" data-desc="Confirmed zero direct, indirect, or third-party contact and strict adherence to stay-away/vehicle orders through Dec 03, 2026.">
+    <div class="tw-checkbox-box">[ ]</div>
+    <div class="tw-task-content">
+      <div class="tw-task-title">Maintain Strict Compliance With Extended TRO</div>
+      <div class="tw-task-desc">Strictly obey all no-contact, 100-yard stay-away, and property/vehicle terms extended at the Oct 29, 2026 hearing—any violation heavily favors renewal.</div>
+      <div class="tw-timestamp"></div>
+    </div>
+    <div class="tw-stamp">CLEARED</div>
+  </div>
+
+  <div class="tw-task-card" data-id="task2" onclick="twToggleCard(this)">
+    <input type="checkbox" data-title="Verify Form DV-800 Firearm Receipt on File" data-desc="Verified that Form DV-800 (Receipt for Firearms, Firearm Parts, and Ammunition) is filed with the court and law enforcement.">
+    <div class="tw-checkbox-box">[ ]</div>
+    <div class="tw-task-content">
+      <div class="tw-task-title">Verify Form DV-800 Firearm Receipt on File</div>
+      <div class="tw-task-desc">Ensure court records reflect full compliance with firearm/ammunition surrender or non-possession rules (Form DV-800) so the judge cannot deny your response.</div>
+      <div class="tw-timestamp"></div>
+    </div>
+    <div class="tw-stamp">CLEARED</div>
+  </div>
+
+  <div class="tw-section-title">II. Written Response &amp; Service (Form DV-720)</div>
+
+  <div class="tw-task-card" data-id="task3" onclick="twToggleCard(this)">
+    <input type="checkbox" data-title="Audit Petitioner's Proofs of Service (Form DV-200)" data-desc="Reviewed filed Form DV-200 records from Sep 24, 2026 (Chicago, IL) and Sep 30, 2026 (St. Joseph, MI) for procedural or timing defects.">
+    <div class="tw-checkbox-box">[ ]</div>
+    <div class="tw-task-content">
+      <div class="tw-task-title">Audit Petitioner's Proofs of Service (DV-200)</div>
+      <div class="tw-task-desc">Inspect the Sep 24 (Chicago, IL) and Sep 30 (St. Joseph, MI) service filings to verify proper personal service of DV-700/710/716 and note any procedural defects.</div>
+      <div class="tw-timestamp"></div>
+    </div>
+    <div class="tw-stamp">CLEARED</div>
+  </div>
+
+  <div class="tw-task-card" data-id="task4" onclick="twToggleCard(this)">
+    <input type="checkbox" data-title="Draft, File &amp; Serve Form DV-720 (Response)" data-desc="Filed Form DV-720 (Response to Request to Renew Restraining Order) and served Petitioner via non-party server.">
+    <div class="tw-checkbox-box">[ ]</div>
+    <div class="tw-task-content">
+      <div class="tw-task-title">File &amp; Serve Form DV-720 (Response to Renewal)</div>
+      <div class="tw-task-desc">File Form DV-720 opposing renewal (or contesting vehicle/custody terms), have a third party 18+ serve Petitioner (Form DV-250), and file Proof of Service before Dec 03.</div>
+      <div class="tw-timestamp"></div>
+    </div>
+    <div class="tw-stamp">CLEARED</div>
+  </div>
+
+  <div class="tw-section-title">III. Rebuttal Evidence &amp; Defense Binder</div>
+
+  <div class="tw-task-card" data-id="task5" onclick="twToggleCard(this)">
+    <input type="checkbox" data-title="Compile Rebuttal Exhibits Under Fam. Code § 6345" data-desc="Assembled rebuttal binder demonstrating lack of reasonable apprehension of future abuse under Fam. Code § 6345 (Ritchie v. Konrad).">
+    <div class="tw-checkbox-box">[ ]</div>
+    <div class="tw-task-content">
+      <div class="tw-task-title">Compile Rebuttal Exhibits (Fam. Code &sect; 6345)</div>
+      <div class="tw-task-desc">Organize evidence showing no reasonable fear of future abuse under <em>Ritchie v. Konrad</em>: full compliance history, geographic distance (IL/MI vs. CA), and changed circumstances.</div>
+      <div class="tw-timestamp"></div>
+    </div>
+    <div class="tw-stamp">CLEARED</div>
+  </div>
+
+  <div class="tw-task-card" data-id="task6" onclick="twToggleCard(this)">
+    <input type="checkbox" data-title="Prepare Vehicle &amp; Custody Counter-Documentation" data-desc="Gathered title/registration/loan records for the 2025 Toyota Sienna and custody/visitation compliance logs.">
+    <div class="tw-checkbox-box">[ ]</div>
+    <div class="tw-task-content">
+      <div class="tw-task-title">Prepare Vehicle &amp; Custody Counter-Records</div>
+      <div class="tw-task-desc">Assemble title, financing, and insurance records for the 2025 Toyota Sienna, plus parenting/support compliance records to contest sole custody or property control requests.</div>
+      <div class="tw-timestamp"></div>
+    </div>
+    <div class="tw-stamp">CLEARED</div>
+  </div>
+
+  <div class="tw-section-title">IV. Hearing Appearance &amp; Post-Hearing Steps</div>
+
+  <div class="tw-task-card" data-id="task7" onclick="twToggleCard(this)">
+    <input type="checkbox" data-title="Confirm Appearance Mode &amp; Exhibit Exchange" data-desc="Confirmed in-person vs. remote appearance rules for Dec 03, 2026 and served exhibit copies on Petitioner per local rules.">
+    <div class="tw-checkbox-box">[ ]</div>
+    <div class="tw-task-content">
+      <div class="tw-task-title">Confirm Appearance &amp; Pre-Serve Exhibits</div>
+      <div class="tw-task-desc">Verify courtroom check-in or remote appearance approval for Dec 03, 2026, and deliver copies of all defense exhibits to Petitioner prior to the hearing.</div>
+      <div class="tw-timestamp"></div>
+    </div>
+    <div class="tw-stamp">CLEARED</div>
+  </div>
+
+  <div class="tw-task-card" data-id="task8" onclick="twToggleCard(this)">
+    <input type="checkbox" data-title="Obtain Minute Order &amp; Verify CLETS Status" data-desc="Obtained certified Minute Order from Dec 03, 2026 hearing confirming dismissal/expiration or exact terms of any modified order.">
+    <div class="tw-checkbox-box">[ ]</div>
+    <div class="tw-task-content">
+      <div class="tw-task-title">Obtain Dec 03 Minute Order &amp; CLETS Status</div>
+      <div class="tw-task-desc">If renewal is denied, obtain certified Minute Order confirming order expiration/CLETS termination; if renewed or modified, review exact terms before leaving court.</div>
+      <div class="tw-timestamp"></div>
+    </div>
+    <div class="tw-stamp">CLEARED</div>
+  </div>
+
+  <div class="tw-footer-actions">
+    <button type="button" class="tw-btn tw-btn-primary" onclick="twCopySummary()">COPY DOCKET LOG</button>
+    <button type="button" class="tw-btn" onclick="window.print()">PRINT / SAVE PDF</button>
+    <button type="button" class="tw-btn" onclick="twResetChecklist()">RESET SHEET</button>
+  </div>
+
+  <div class="tw-toast" id="twToast">COPIED TO CLIPBOARD</div>
+
+  <script>
+    (function() {
+      const STORAGE_KEY = 'dvro_tw_respondent_checklist_25_FAM_02560';
+      const RECIPIENT = 'LauraMaryNashFurniss260129@gmail.com';
+      const HEARING_DATE = new Date('2026-12-03T08:30:00');
+
+      function showToast(msg) {
+        const toast = document.getElementById('twToast');
+        toast.textContent = msg.toUpperCase();
+        toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2500);
+      }
+
+      function updateCountdown() {
+        const badge = document.getElementById('twCountdown');
+        const now = new Date();
+        const diffDays = Math.ceil((HEARING_DATE - now) / (1000 * 60 * 60 * 24));
+        if (diffDays > 0) {
+          badge.textContent = `HEARING: DEC 03, 2026 (${diffDays}D LEFT)`;
+        } else if (diffDays === 0) {
+          badge.textContent = 'HEARING: TODAY (DEC 03, 2026)';
+        } else {
+          badge.textContent = 'HEARING: DEC 03, 2026';
+        }
+      }
+
+      window.twCopyCaseNo = function() {
+        navigator.clipboard.writeText('25-FAM-02560').then(() => {
+          showToast('Copied Case No. 25-FAM-02560');
+        });
+      };
+
+      window.twToggleCard = function(card) {
+        const checkbox = card.querySelector('input[type="checkbox"]');
+        checkbox.checked = !checkbox.checked;
+        processCheckboxState(checkbox, card, true);
+      };
+
+      function processCheckboxState(checkbox, card, triggerEmail) {
+        const title = checkbox.getAttribute('data-title');
+        const desc = checkbox.getAttribute('data-desc');
+        const tsEl = card.querySelector('.tw-timestamp');
+        const boxEl = card.querySelector('.tw-checkbox-box');
+
+        if (checkbox.checked) {
+          const nowStr = new Date().toLocaleString([], { dateStyle: 'medium', timeStyle: 'short' });
+          card.classList.add('completed');
+          boxEl.textContent = '[X]';
+          tsEl.textContent = `LOGGED: ${nowStr}`;
+          if (triggerEmail) {
+            sendNotificationEmail(title, desc, nowStr);
+          }
+        } else {
+          card.classList.remove('completed');
+          boxEl.textContent = '[ ]';
+          tsEl.textContent = '';
+        }
+
+        saveProgress();
+        updateProgressUI();
+      }
+
+      function updateProgressUI() {
+        const cards = document.querySelectorAll('#dvro-typewriter-wrapper .tw-task-card');
+        let completed = 0;
+        cards.forEach(card => {
+          if (card.classList.contains('completed')) completed++;
+        });
+        const total = cards.length;
+        const pct = Math.round((completed / total) * 100);
+
+        document.getElementById('twProgressBar').style.width = pct + '%';
+        document.getElementById('twProgressText').textContent = `${completed} / ${total} COMPLETED (${pct}%)`;
+        document.getElementById('twStatusLabel').textContent = completed === total ? 'STATUS: ALL ITEMS CLEARED' : 'STATUS: IN PROGRESS';
+      }
+
+      function saveProgress() {
+        const state = {};
+        document.querySelectorAll('#dvro-typewriter-wrapper .tw-task-card').forEach(card => {
+          const id = card.getAttribute('data-id');
+          const checked = card.querySelector('input[type="checkbox"]').checked;
+          const timestamp = card.querySelector('.tw-timestamp').textContent;
+          state[id] = { checked, timestamp };
+        });
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      }
+
+      function loadProgress() {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return;
+        const state = JSON.parse(raw);
+        document.querySelectorAll('#dvro-typewriter-wrapper .tw-task-card').forEach(card => {
+          const id = card.getAttribute('data-id');
+          if (state[id] && state[id].checked) {
+            const cb = card.querySelector('input[type="checkbox"]');
+            cb.checked = true;
+            card.classList.add('completed');
+            card.querySelector('.tw-checkbox-box').textContent = '[X]';
+            card.querySelector('.tw-timestamp').textContent = state[id].timestamp || 'LOGGED';
+          }
+        });
+        updateProgressUI();
+      }
+
+      window.twCopySummary = function() {
+        const lines = [
+          '====================================================',
+          'CASE NO. 25-FAM-02560 (DVRO) — RESPONDENT AUDIT LOG',
+          `GENERATED: ${new Date().toLocaleString()}`,
+          '====================================================',
+          ''
+        ];
+        document.querySelectorAll('#dvro-typewriter-wrapper .tw-task-card').forEach((card, i) => {
+          const cb = card.querySelector('input[type="checkbox"]');
+          const title = cb.getAttribute('data-title');
+          const status = cb.checked ? `[X] ${card.querySelector('.tw-timestamp').textContent}` : '[ ] PENDING';
+          lines.push(`${i + 1}. ${title}\n    ${status}`);
+        });
+        navigator.clipboard.writeText(lines.join('\n')).then(() => {
+          showToast('Full respondent log copied');
+        });
+      };
+
+      window.twResetChecklist = function() {
+        if (confirm('Clear all stamped items and reset this checklist?')) {
+          localStorage.removeItem(STORAGE_KEY);
+          document.querySelectorAll('#dvro-typewriter-wrapper .tw-task-card').forEach(card => {
+            card.querySelector('input[type="checkbox"]').checked = false;
+            card.classList.remove('completed');
+            card.querySelector('.tw-checkbox-box').textContent = '[ ]';
+            card.querySelector('.tw-timestamp').textContent = '';
+          });
+          updateProgressUI();
+          showToast('Docket sheet reset');
+        }
+      };
+
+      function sendNotificationEmail(taskTitle, taskDetails, timestamp) {
+        const subject = encodeURIComponent(`Completed Respondent Step [25-FAM-02560]: ${taskTitle}`);
+        const body = encodeURIComponent(
+          `Hello,\n\nThe following Respondent defense step for Case No. 25-FAM-02560 has been completed and struck from the checklist:\n\n` +
+          `STEP: ${taskTitle}\n` +
+          `DETAILS: ${taskDetails}\n\n` +
+          `STATUS: CLEARED\n` +
+          `TIMESTAMP: ${timestamp}`
+        );
+        setTimeout(() => {
+          window.location.href = `mailto:${RECIPIENT}?subject=${subject}&body=${body}`;
+        }, 120);
+      }
+
+      updateCountdown();
+      loadProgress();
+    })();
+  </script>
+</div>
