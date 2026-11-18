@@ -1,0 +1,690 @@
+<div id="cc-llc-agreement">
+  <style>
+    #cc-llc-agreement, #cc-llc-agreement * {
+      box-sizing: border-box;
+    }
+
+    #cc-llc-agreement {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      color: #111827;
+      font-family: "Georgia", "Times New Roman", Times, serif;
+      font-size: 15px;
+      line-height: 1.6;
+      border: 1px solid #d1d5db;
+    }
+
+    #cc-llc-agreement .cc-toolbar {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 10px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 13px;
+    }
+
+    #cc-llc-agreement .cc-toolbar-title {
+      font-weight: 700;
+    }
+
+    #cc-llc-agreement .cc-toolbar-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+
+    #cc-llc-agreement .cc-toolbar input[type="email"] {
+      padding: 5px 9px;
+      border-radius: 4px;
+      border: 1px solid #475569;
+      background: #1e293b;
+      color: #ffffff;
+      font-size: 13px;
+      width: 195px;
+    }
+
+    #cc-llc-agreement .cc-btn {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 12.5px;
+      cursor: pointer;
+    }
+
+    #cc-llc-agreement .cc-btn-sec { background: #334155; color: #f8fafc; }
+    #cc-llc-agreement .cc-btn-sec:hover { background: #475569; }
+    #cc-llc-agreement .cc-btn-pri { background: #2563eb; color: #ffffff; }
+    #cc-llc-agreement .cc-btn-pri:hover { background: #1d4ed8; }
+    #cc-llc-agreement .cc-btn-suc { background: #059669; color: #ffffff; }
+    #cc-llc-agreement .cc-btn-suc:hover { background: #047857; }
+
+    #cc-llc-agreement .cc-banner {
+      background: #fef3c7;
+      border-bottom: 1px solid #f59e0b;
+      color: #92400e;
+      text-align: center;
+      padding: 8px 14px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 12.5px;
+      font-weight: 600;
+    }
+
+    #cc-llc-agreement .cc-body {
+      padding: 36px 42px;
+    }
+
+    #cc-llc-agreement h1 {
+      text-align: center;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin: 0 0 6px 0;
+      border-bottom: 2px solid #111827;
+      padding-bottom: 8px;
+    }
+
+    #cc-llc-agreement .cc-subtitle {
+      text-align: center;
+      font-size: 13px;
+      color: #4b5563;
+      margin-bottom: 22px;
+      font-style: italic;
+    }
+
+    #cc-llc-agreement h2 {
+      font-size: 16px;
+      margin: 22px 0 8px 0;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 3px;
+    }
+
+    #cc-llc-agreement p {
+      margin: 0 0 12px 0;
+      text-align: justify;
+    }
+
+    #cc-llc-agreement ul, #cc-llc-agreement ol {
+      margin: 0 0 14px 0;
+      padding-left: 22px;
+    }
+
+    #cc-llc-agreement li {
+      margin-bottom: 8px;
+      text-align: justify;
+    }
+
+    #cc-llc-agreement .cc-input {
+      border: none;
+      border-bottom: 1px solid #374151;
+      background: #f8fafc;
+      font-family: inherit;
+      font-size: inherit;
+      color: #111827;
+      padding: 1px 6px;
+      min-width: 125px;
+    }
+
+    #cc-llc-agreement .cc-sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+      margin: 18px 0 26px 0;
+    }
+
+    #cc-llc-agreement .cc-sig-box {
+      border: 1px solid #d1d5db;
+      background: #f9fafb;
+      padding: 12px;
+      border-radius: 4px;
+    }
+
+    #cc-llc-agreement .cc-sig-header {
+      font-weight: bold;
+      font-size: 13px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    #cc-llc-agreement .cc-canvas-wrap {
+      background: #ffffff;
+      border: 1px dashed #9ca3af;
+      margin-bottom: 6px;
+    }
+
+    #cc-llc-agreement canvas.cc-canvas {
+      display: block;
+      width: 100%;
+      height: 85px;
+      cursor: crosshair;
+      touch-action: none;
+    }
+
+    #cc-llc-agreement .cc-sig-typed {
+      width: 100%;
+      border: 1px solid #d1d5db;
+      padding: 5px 8px;
+      font-family: "Brush Script MT", "Lucida Handwriting", cursive;
+      font-size: 20px;
+      margin-bottom: 6px;
+      background: #ffffff;
+    }
+
+    #cc-llc-agreement .cc-sig-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 11px;
+      color: #4b5563;
+    }
+
+    #cc-llc-agreement .cc-mini-btn {
+      background: #e5e7eb;
+      border: 1px solid #d1d5db;
+      border-radius: 3px;
+      padding: 2px 8px;
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    #cc-llc-agreement table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0 22px 0;
+      font-size: 13px;
+    }
+
+    #cc-llc-agreement th, #cc-llc-agreement td {
+      border: 1px solid #9ca3af;
+      padding: 7px;
+      text-align: left;
+      vertical-align: middle;
+    }
+
+    #cc-llc-agreement th {
+      background: #f3f4f6;
+    }
+
+    #cc-llc-agreement .cc-tbl-input {
+      width: 100%;
+      border: 1px solid #d1d5db;
+      padding: 4px 6px;
+      font-family: inherit;
+      font-size: 12.5px;
+      background: #ffffff;
+    }
+
+    #cc-llc-agreement .cc-tbl-sig {
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid #4b5563;
+      font-family: "Brush Script MT", "Lucida Handwriting", cursive;
+      font-size: 18px;
+      padding: 2px 4px;
+      background: #f8fafc;
+    }
+
+    #cc-llc-agreement .cc-notary {
+      border: 2px solid #1f2937;
+      background: #fafafa;
+      padding: 16px 18px;
+      margin-top: 24px;
+    }
+
+    #cc-llc-agreement .cc-notary-title {
+      text-align: center;
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: 14px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #9ca3af;
+      padding-bottom: 5px;
+    }
+
+    #cc-llc-agreement .cc-notary-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 18px;
+      align-items: end;
+      margin-top: 14px;
+    }
+
+    #cc-llc-agreement .cc-seal-box {
+      border: 1px dashed #6b7280;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-size: 11px;
+      color: #6b7280;
+      font-style: italic;
+      padding: 6px;
+    }
+
+    @media (max-width: 700px) {
+      #cc-llc-agreement .cc-body { padding: 20px; }
+      #cc-llc-agreement .cc-sig-grid, #cc-llc-agreement .cc-notary-grid { grid-template-columns: 1fr; }
+    }
+
+    @media print {
+      #cc-llc-agreement { border: none; max-width: 100%; }
+      #cc-llc-agreement .cc-toolbar, #cc-llc-agreement .cc-banner, #cc-llc-agreement .cc-mini-btn, #cc-llc-agreement .cc-sig-meta span { display: none !important; }
+      #cc-llc-agreement .cc-body { padding: 0; }
+      #cc-llc-agreement .cc-input, #cc-llc-agreement .cc-tbl-input, #cc-llc-agreement .cc-tbl-sig, #cc-llc-agreement .cc-sig-typed { background: transparent !important; }
+    }
+  </style>
+
+  <div class="cc-toolbar">
+    <div class="cc-toolbar-title">Cornelius Codes LLC — Execution &amp; Courtesy Copy</div>
+    <div class="cc-toolbar-controls">
+      <label for="ccCourtesyEmail" style="font-size:12px;color:#cbd5e1;">Courtesy Copy:</label>
+      <input type="email" id="ccCourtesyEmail" value="a@pocz.cc" placeholder="recipient@example.com" />
+      <button type="button" class="cc-btn cc-btn-sec" onclick="window.print()">Print / PDF</button>
+      <button type="button" class="cc-btn cc-btn-pri" onclick="ccDownloadHtml()">Download Copy</button>
+      <button type="button" class="cc-btn cc-btn-suc" onclick="ccEmailCopy()">Email Courtesy Copy</button>
+    </div>
+  </div>
+
+  <div class="cc-banner">
+    CONDITION PRECEDENT: Per Article 14, this Agreement shall NOT take effect until duly acknowledged and notarized by a commissioned Illinois Notary Public (5 ILCS 312/).
+  </div>
+
+  <div class="cc-body">
+    <h1>Membership Interest Transfer and Joinder Agreement</h1>
+    <div class="cc-subtitle">Cornelius Codes LLC &bull; Illinois Secretary of State File No. 13382174</div>
+
+    <p>
+      <strong>THIS MEMBERSHIP INTEREST TRANSFER AND JOINDER AGREEMENT</strong> (this “Agreement”) is entered into as of
+      <input type="text" id="ccEffDate" class="cc-input" value="November 18, 2026" />,
+      by and among <strong>Ellen Amanda Allt</strong> (“Transferor”), <strong>Cornelius Codes LLC</strong>, an Illinois limited liability company (the “Company”), and the undersigned parties listed on <strong>Exhibit A</strong> (each, a “Transferee” and collectively, the “Transferees”).
+    </p>
+
+    <h2>1. Background and Entity Information</h2>
+    <ul>
+      <li><strong>Company Details:</strong> Cornelius Codes LLC is a limited liability company organized and existing under the Illinois Limited Liability Company Act, 805 ILCS 180/1-1 <em>et seq.</em> (the “Illinois Act”), registered with the Illinois Secretary of State under File Number <strong>13382174</strong>, with its principal office located at <strong>4601 N Paulina Street, Ste 402, Chicago, IL 60640</strong>.</li>
+      <li><strong>Current Ownership:</strong> Transferor currently holds a forty-nine percent (49%) membership interest in the Company (the “Transferor Interest”).</li>
+      <li>
+        <strong>Product, Open-Source Upstream &amp; Project Origin:</strong> The Company’s primary commercial product is <strong>Google Laws</strong>, which is a proprietary derivative work built upon and derived from the open-source <strong>GovBot</strong> codebase (<code>github.com/chihacknight/govbot</code> and related legislative data repositories). The Parties acknowledge that:
+        <ol>
+          <li>The GovBot project originated out of civic technology sessions hosted by <strong>Chi Hack Night Inc.</strong>, an Illinois not-for-profit corporation, and pursuant to the bylaws and policies of Chi Hack Night Inc., Chi Hack Night Inc. claims and holds no intellectual property rights, ownership, or proprietary interest over projects or code created during its seminars or events; and</li>
+          <li>While upstream open-source repositories of GovBot remain publicly accessible and include contributions from non-member community collaborators (including, without limitation, Divyam, Ramisa Rahima, Michael Neuman, and Dan Grumieaux), <strong>Google Laws</strong> and all proprietary extensions, commercial deployments, branding, and derivative works thereof are the sole and exclusive property of Cornelius Codes LLC.</li>
+        </ol>
+      </li>
+      <li><strong>Documented Sweat Equity &amp; Stewardship Consideration:</strong> Each individual Transferee has performed substantial development, data engineering, observability, or civic-tech operational work on the <strong>GovBot</strong> ecosystem (collectively, the “Services”), including: backend architecture, Model Context Protocol (MCP) server development, and A–F state data quality frameworks (<em>Sarta J</em>); real-time Fable 5 dashboards, Witness Slips/Hearings RSS trackers, social media alert bots, and <em>Know Your Ballot</em> deployments (<em>Frankie S.</em>); scraper failure classification, OpenStates session auto-pausing, self-hosted runner infrastructure, and state bill scraper maintenance (<em>Tamera</em>); <code>jsonl-action-logs</code> consolidation and backend data pipelines (<em>Taha Husain</em>); GitHub Actions observability, metrics/logging, and Grafana alerting infrastructure (<em>Nate Gross</em>); and Witness Slips architecture, ATProtocol Spaces data segmentation, distributed scraping designs, and mascot visual identity direction (<em>Edwin Chalas Cuevas</em>). In addition, the Parties wish to dedicate one equal share as a <strong>Firstfruits &amp; Tithe Charitable Share</strong> (grounded in the biblical principle of tithing and firstfruits offerings, <em>Proverbs 3:9</em> and <em>Malachi 3:10</em>) to be held and appropriated for qualified charitable organizations in Illinois.</li>
+      <li><strong>Purpose:</strong> In compensation for the Services rendered, to honor the charitable dedication, and in exchange for the repayment obligations and mutual covenants set forth herein, Transferor desires to transfer and assign the entire forty-nine percent (49%) Transferor Interest in seven (7) equal shares (7.00% each) as set forth in <strong>Exhibit A</strong>, and the Company desires to admit the Transferees as Non-Voting Economic Members pursuant to the Illinois Act.</li>
+    </ul>
+
+    <h2>2. Transfer and Nature of Membership Interests</h2>
+    <ul>
+      <li><strong>Equal Seven-Way Allocation (49% Total):</strong> Subject to the terms of this Agreement, Transferor hereby transfers, assigns, and conveys her entire forty-nine percent (49%) membership interest divided into <strong>seven (7) equal shares of seven percent (7.00%) each</strong> (<code>49.00% &divide; 7 = 7.00%</code> per share) to the six (6) individual contributors and the designated <strong>Firstfruits &amp; Tithe Charitable Share</strong> as set forth in <strong>Exhibit A</strong>.</li>
+      <li><strong>Retained Interest:</strong> Immediately following this transfer, Transferor shall retain a <strong>zero percent (0.00%)</strong> membership interest in the Company.</li>
+      <li>
+        <strong>Administration and Appropriation of the Firstfruits &amp; Tithe Charitable Share:</strong>
+        <ul>
+          <li>The 7.00% <strong>Firstfruits &amp; Tithe Charitable Share</strong> shall be held in trust or administered by the Company for charitable distribution and shall be appropriated as necessary by a <strong>majority vote of the voting membership ownership</strong> of Cornelius Codes LLC.</li>
+          <li>Any recipient organization selected to receive funds or distributions from the Firstfruits &amp; Tithe Charitable Share must be a <strong>registered domestic Illinois corporation</strong> duly registered and in good standing as a charitable organization with the <strong>Office of the Illinois Attorney General</strong> (pursuant to the Illinois Charitable Trust Act, 760 ILCS 55/, and/or the Solicitation for Charity Act, 225 ILCS 460/). Federal tax-exempt recognition under Section 501(c)(3) of the Internal Revenue Code is <strong>not</strong> a requirement for eligibility.</li>
+        </ul>
+      </li>
+      <li><strong>Full Economic Rights (Profits, Losses, Capital, and Assets):</strong> Pursuant to 805 ILCS 180/15-1 and 805 ILCS 180/30-1, each transferred membership interest carries full economic rights corresponding to its respective 7.00% percentage interest, including the right to receive allocations of the Company’s profits and losses, distributions of cash or property, and distributions of capital and assets upon liquidation or dissolution of the Company.</li>
+      <li><strong>Non-Voting Status (No Management or Voting Power):</strong> Pursuant to 805 ILCS 180/15-1(c), all membership interests transferred under this Agreement (including the Firstfruits &amp; Tithe Charitable Share) are <strong>strictly non-voting</strong>. Transferees shall have no voting rights, no right to participate in the management or conduct of the Company’s business, and no authority to bind the Company or inspect records beyond the minimum mandatory disclosures required under 805 ILCS 180/10-15 that cannot be waived by an operating agreement. All management and voting authority remains vested exclusively in the voting membership ownership and Managing Member(s) as set forth in the Company's Operating Agreement.</li>
+    </ul>
+
+    <h2>3. Succession of Majority Voting Power and Probate Continuity</h2>
+    <ul>
+      <li><strong>Succession Upon Death, Incapacity, or Probate:</strong> In the event of the death, legal incapacity, or transfer through probate, estate administration, or trust administration of the holder of the fifty-one percent (51%) voting membership interest in Cornelius Codes LLC, the full <strong>fifty-one percent (51%) voting power</strong> and associated management authority in the Company shall automatically be assigned to and vested in <strong>Erica Michele Cornelius</strong>, subject to and in coordination with the administrative and execution authority of <strong>Andrew McCue, CPA</strong>, acting in his capacity as Executor under the Last Will and Testament of the majority membership interest holder.</li>
+      <li><strong>Binding Effect on Operating Agreement:</strong> All parties to this Agreement expressly consent to this succession arrangement and agree that it shall be incorporated into and binding upon the Company’s Operating Agreement pursuant to 805 ILCS 180/15-1 and 805 ILCS 180/30-20 (Power of Estate of Deceased or Incompetent Member).</li>
+    </ul>
+
+    <h2>4. Consideration, Intellectual Property Assignment &amp; California Labor Law Carve-Out</h2>
+    <ul>
+      <li><strong>Transferee Services &amp; Charitable Dedication:</strong> The sole and sufficient consideration provided by the six individual Transferees is the Services already performed on the <strong>GovBot</strong> project, and the consideration for the Firstfruits &amp; Tithe Charitable Share is the irrevocable dedication of such share to eligible Illinois charitable organizations. No cash payment or initial capital contribution is required from any Transferee.</li>
+      <li><strong>Present Assignment &amp; Commercial License of Intellectual Property:</strong> To the extent any Transferee created, authored, or contributed code, data models, scrapers, dashboards, observability pipelines, visual designs, documentation, or other work product to <strong>GovBot</strong> or <strong>Google Laws</strong>, each Transferee hereby: (a) irrevocably assigns, transfers, and conveys to Cornelius Codes LLC all right, title, and interest worldwide in and to all derivative commercial rights in <strong>Google Laws</strong> (including all copyrights, patent rights, trade secrets, and moral rights to the fullest extent permitted by law); and (b) to the extent any underlying contribution remains subject to an upstream open-source license, grants the Company a perpetual, irrevocable, worldwide, royalty-free, sublicensable license to commercialize, modify, and incorporate such contribution into <strong>Google Laws</strong> without restriction.</li>
+      <li><strong>California Labor Code &sect; 2870 &amp; Illinois Employee Patent Act Notice:</strong> To the extent California law is ever deemed applicable to any Transferee residing or working in California, this intellectual property assignment <strong>does not apply</strong> to any invention or work product that qualifies fully for exclusion under <strong>California Labor Code Section 2870</strong> (or <strong>765 ILCS 1060/2</strong> under Illinois law)—specifically, any invention developed entirely on the Transferee’s own time without using the Company’s equipment, supplies, facilities, or trade secret information, except for those inventions that either (a) relate at the time of conception or reduction to practice to the Company’s business (including GovBot and Google Laws) or actual or demonstrably anticipated research or development, or (b) result from any work performed by the Transferee for the Company.</li>
+      <li><strong>Tax Acknowledgment &amp; Independent Status:</strong> Each individual Transferee acknowledges that: (a) they contributed to GovBot as an independent civic-tech collaborator and not as a W-2 employee or contractor of the Company; and (b) receiving a membership interest in exchange for services may result in taxable income under federal, Illinois, and/or California tax laws, and each Transferee agrees to be solely responsible for their own personal tax reporting and obligations (including any election under IRC Section 83(b), if applicable).</li>
+    </ul>
+
+    <h2>5. Joinder to Operating Agreement &amp; Securities Law Compliance</h2>
+    <ul>
+      <li><strong>Admission as Non-Voting Members:</strong> Upon execution of this Agreement, satisfaction of the Illinois notarization condition precedent in Article 14, and consent of the Managing Member, each Transferee is admitted as a Non-Voting Member of the Company and agrees to be bound by all terms, conditions, and transfer restrictions of the Company’s Operating Agreement, as amended from time to time (including any right of first refusal held by the Company prior to any third-party transfer of economic interests).</li>
+      <li><strong>No Additional Capital Calls:</strong> In accordance with 805 ILCS 180/20-5, unless otherwise agreed in writing, Transferees shall have no obligation to make additional capital contributions to the Company.</li>
+      <li><strong>Federal, Illinois &amp; California Securities Exemptions:</strong> Each Transferee represents and warrants that: (a) they are acquiring their non-voting membership interest for their own account for investment and not with a view to public resale or distribution; (b) they have a pre-existing substantive personal or working relationship with the Company and its Managing Member through the GovBot project; and (c) the issuance of these interests is exempt from registration under Section 4(a)(2) of the Securities Act of 1933, Section 4.G / 4.H of the Illinois Securities Law of 1953 (815 ILCS 5/4), and California Corporations Code Section 25102(f) (limited offering exemption).</li>
+    </ul>
+
+    <h2>6. Representations and Warranties</h2>
+    <ul>
+      <li><strong>Transferor:</strong> Transferor represents that they are the sole legal and beneficial owner of the Transferor Interest and have full authority to transfer these interests free and clear of any liens or encumbrances.</li>
+      <li><strong>Individual Transferees:</strong> Each individual Transferee represents and warrants that: (a) they performed the Services on GovBot free of any conflicting third-party or employer IP claims; (b) they have had an opportunity to review the Company’s organizational records and ask questions of the Managing Member; and (c) they have been advised of their right to consult independent legal and tax counsel prior to executing this Agreement.</li>
+    </ul>
+
+    <h2>7. General Provisions</h2>
+    <ul>
+      <li><strong>Governing Law &amp; Internal Affairs Doctrine:</strong> Under the internal affairs doctrine recognized by both Illinois and California courts (see <em>805 ILCS 180/1-1 et seq.</em> and <em>Cal. Corp. Code &sect; 17708.01</em>), the organization, internal affairs, membership rights, voting power, and fiduciary duties of Cornelius Codes LLC shall be governed exclusively by the laws of the <strong>State of Illinois</strong>, without regard to conflict-of-law principles.</li>
+      <li><strong>Forum Selection &amp; Consent to Jurisdiction:</strong> Any action, suit, or proceeding arising out of or relating to this Agreement or the internal affairs of the Company shall be brought exclusively in the state or federal courts located in <strong>Cook County, Illinois</strong>. Each party irrevocably submits to the personal jurisdiction of such courts and waives any objection based on <em>forum non conveniens</em> or venue, except to the extent mandatory non-waivable statutory protections under California law are held by a court of competent jurisdiction to apply to a California resident.</li>
+      <li><strong>Severability &amp; Blue-Pencil Reformation:</strong> If any provision of this Agreement is held invalid or unenforceable under Illinois or California law, such provision shall be reformed to the minimum extent necessary to render it valid and enforceable, and the remaining provisions shall continue in full force and effect.</li>
+      <li><strong>Entire Agreement &amp; Counterparts:</strong> This Agreement (together with the Company’s Operating Agreement) constitutes the entire agreement among the parties with respect to the subject matter hereof. Subject to the mandatory Illinois notarization condition precedent in Article 14, this Agreement may be executed in counterparts, including via electronic signature in compliance with the Illinois Uniform Electronic Transactions Act (815 ILCS 333/) and the California Uniform Electronic Transactions Act (Cal. Civ. Code &sect; 1633.1 <em>et seq.</em>), each of which shall be deemed an original.</li>
+    </ul>
+
+    <h2>8. Transferor Debt Repayment, Reimbursement, and Waiver of Non-Disclosure Obligations</h2>
+    <ul>
+      <li><strong>Repayment of Existing Debt ($3,769.00):</strong> As material consideration for the Company’s consent to this transfer and release of Transferor from ongoing membership obligations, <strong>Ellen Amanda Allt</strong> acknowledges and agrees that she is indebted to <strong>Cornelius Codes LLC</strong> in the principal sum of <strong>Three Thousand Seven Hundred Sixty-Nine Dollars ($3,769.00)</strong> and covenants to repay such balance in full to the Company.</li>
+      <li><strong>Reimbursement of Advanced Telecommunications Expenses:</strong> Transferor further covenants and agrees to reimburse and pay to the Company one hundred percent (100%) of all cellular telephone service charges, plan fees, and related telecommunications expenses advanced or fronted by the Company on Transferor’s behalf, up to and including the effective date of transfer of billing responsibility.</li>
+      <li><strong>Waiver of Non-Disclosure Agreement (NDA) &amp; Right to Publicly Discuss Involvement:</strong> As the sole non-monetary covenant and consideration exchanged between the Company and Transferor regarding confidentiality, the Company hereby <strong>irrevocably waives</strong> any requirement that Transferor execute a Non-Disclosure Agreement (NDA) or confidentiality restriction in connection with this Agreement, <strong>GovBot</strong>, <strong>Google Laws</strong>, or her prior membership in the Company. Transferor shall retain the unrestricted right to freely discuss, disclose, reference, and speak publicly or privately with any third party regarding her involvement, contributions, and history with the project and the Company, provided that Transferor shall not misrepresent herself as an ongoing officer, managing member, or authorized agent of Cornelius Codes LLC following the effective date of this Agreement.</li>
+    </ul>
+
+    <h2>9. Erroneous, Extraneous, and Whimsical Covenants (Memorialization of <code>#govbot</code> Project Lore)</h2>
+    <p><em>The Parties hereby stipulate and agree to the following entirely erroneous, non-essential, and operational lore provisions derived from the <code>#govbot</code> Slack record. In the event any court of competent jurisdiction in Cook County, Illinois, or the State of California determines that any subsection of this Article 9 is legally erroneous, absurd, or unenforceable, such subsection shall be severed immediately without affecting the validity or enforceability of Articles 1 through 8 or Articles 10 through 14:</em></p>
+    <ul>
+      <li><strong>9.1 The “Brick Phone” Geometry &amp; Mascot Aesthetic Deadlock:</strong> The Parties acknowledge an unresolved design dispute regarding the hand-drawn GovBot mascot featuring small eyes and ground shadows. While the Managing Member (acting under the alias <em>“Adam from 17th and Wood, Cornelius, [retired] CPA”</em>) formally advocates for a <strong>brick-shaped mascot</strong> optimized for users accessing legislation on “brick phones” alongside fifty-six (56) jurisdictional mascot variants (“sort of like America”), Transferee <strong>Edwin Chalas Cuevas</strong> has entered a formal objection on the record (<em>“I am not a brick shape fan tbh”</em>), proposing instead CGP Grey-style stick figures or a librarian-style bot wearing glasses so as to avoid looking like a bell. Transferee <strong>Nate Gross</strong> further reserves the right to object to patriotic top hats (<em>“rah rah America”</em>) in favor of two-color favicon legibility, while <strong>Frankie S.</strong> and <strong>Taha Husain</strong> endorse a top-hatted <em>Schoolhouse Rock</em> hybrid. No economic distributions shall be withheld on account of mascot shape.</li>
+      <li><strong>9.2 The Qamaria Yemeni Coffee Cancellation &amp; Brown Line Transit Protocol:</strong> The Parties stipulate that all scheduled in-person synchronization meetings at <strong>Qamaria Yemeni Coffee</strong> are perpetually subject to unilateral, same-day cancellation whenever <strong>Sarta J</strong> catches a bug or pivots to remote livestreaming via Google Meet (<code>meet.google.com/irz-ywwd-idt</code>). Furthermore, no Transferee shall be held in breach of fiduciary or collaborative duty for transit delays on the CTA Brown Line near Irving Park, arriving slightly tipsy from corporate networking events, or acknowledging that ninety percent (90%) of modern employment consists of networking.</li>
+      <li><strong>9.3 The “Stunlocked Philosophizing” &amp; Negative-Time Legislative Staff Clause:</strong> The Parties ratify the collective definition of their mission as <em>“Activists for government transparency”</em> (credited to <strong>Tamera</strong>), following a period in which the team became officially <strong>“stunlocked philosophizing”</strong> over why they were building the project. The Parties further stipulate as an irrebuttable presumption that legislative staffers possess <strong>“negative time,”</strong> thereby mandating local git-cloned Model Context Protocol (MCP) functionality free of API keys, account logs, or query tracking.</li>
+      <li><strong>9.4 Grafana Alert Silencing &amp; <code>/github unsubscribe</code> Immunity:</strong> Any Member or collaborator experiencing emotional distress or notification fatigue from excessive Grafana webhook alerts in <code>#govbot-logs</code> or <code>chn.govbot@gmail.com</code> is expressly authorized to log in and apply alert silences without prior Managing Member approval. Additionally, the Parties retroactively ratify <strong>Sarta J</strong>’s unilateral execution of <code>/github unsubscribe chihacknight/govbot</code> to halt commit-notification spam, as well as the practice of instructing Claude to inspect recent commit histories whenever backend changes inadvertently break the social media bots.</li>
+      <li><strong>9.5 The December 15 Venue Quantum Superposition &amp; Detroit TikToker Ratification:</strong> Until physically observed on December 15, 2026, the project’s year-end presentation shall be deemed to exist simultaneously at <strong>TeamWorking (20 N. Upper Wacker Drive, 12th Floor)</strong> and <strong>i.c.stars (750 N. Orleans Street, Suite 500)</strong>. The Parties further ratify the recruitment of a cool TikTok content creator from Detroit (formerly affiliated with the Abdul campaign) for the purpose of expanding <strong>Google Laws</strong> and <strong>GovBot</strong> into “Substack World” and short-form vertical video.</li>
+      <li><strong>9.6 The <code>chn.govbot@gmail.com</code> Delegate Purgatory Stipulation:</strong> The Parties acknowledge that non-member <strong>Charles Cole</strong> (<code>smashdaisaku@gmail.com</code> / <code>charles.sismondi@gmail.com</code>) remains listed as a Gmail delegate on <code>chn.govbot@gmail.com</code> solely because nobody currently knows how to remove him from their administrative end. Such lingering delegate status shall not be construed as conferring membership, equity, or liability upon Charles Cole.</li>
+    </ul>
+
+    <h2>10. Tax Administration, Partnership Representative &amp; Withholding Authority</h2>
+    <ul>
+      <li><strong>Designation of Partnership Representative:</strong> Pursuant to Internal Revenue Code Section 6223 (26 U.S.C. &sect; 6223) and corresponding Illinois tax procedures, <strong>Adam Edward Cornelius</strong> (or such successor designated in writing by the majority voting membership) is appointed as the sole <strong>Partnership Representative</strong> of the Company with full authority to act on behalf of the Company and all Members in any federal, state, or local tax audit, administrative proceeding, settlement, or tax election (including any election under IRC Section 6226 to push out audit adjustments to the Members).</li>
+      <li><strong>Subchapter K Allocations &amp; Timing of Distributions:</strong> Net profits and losses of the Company shall be allocated among the Members in proportion to their respective percentage interests in accordance with Subchapter K of the Internal Revenue Code (26 U.S.C. &sect; 704). Cash distributions—including any discretionary tax advances—shall be made solely at such times and in such amounts as determined by the Managing Member after establishing reasonable reserves for Company operations, capital expenditures, and liabilities. Nothing in this Agreement guarantees annual cash distributions equal to a Transferee’s pass-through tax liability.</li>
+      <li><strong>Statutory Tax Withholding &amp; Indemnification:</strong> The Company is authorized to withhold and remit to federal, Illinois (pursuant to 35 ILCS 5/709.5), or California (pursuant to Cal. Rev. &amp; Tax. Code &sect; 18662) tax authorities any taxes required to be withheld with respect to any Transferee’s allocable share of income or distributions. Any amount so withheld shall be treated as a cash distribution to such Transferee, and if withholding obligations exceed available cash distributions, the applicable Transferee shall reimburse the Company upon demand.</li>
+    </ul>
+
+    <h2>11. Transfer Restrictions, Right of First Refusal &amp; Community Property Protections</h2>
+    <ul>
+      <li><strong>Prohibition on Unauthorized Transfers:</strong> No Transferee may sell, assign, pledge, encumber, hypothecate, or otherwise transfer all or any portion of their non-voting economic interest (whether voluntarily, involuntarily, or by operation of law) without the prior written consent of the Managing Member, except in strict compliance with the Right of First Refusal set forth in this Article 11. Any attempted transfer in violation of this Article 11 shall be null and void <em>ab initio</em>.</li>
+      <li><strong>Company Right of First Refusal (ROFR):</strong> Prior to any proposed bona fide sale or transfer of a Transferee’s economic interest to a third party, the transferring Transferee shall deliver written notice to the Company specifying the proposed transferee, percentage interest, purchase price, and material terms. The Company shall have an exclusive option for thirty (30) days following receipt of such notice to purchase all or any portion of the offered interest on the same economic terms (or, at the Company’s election, at the fair market value determined by the Company’s independent CPA).</li>
+      <li><strong>Charging Order Sole Remedy &amp; Involuntary Transfers:</strong> In accordance with 805 ILCS 180/30-20, the exclusive remedy of any judgment creditor, bankruptcy trustee, or divorcing spouse of a Transferee shall be a charging order against the Transferee’s distributional interest. No creditor, assignee, or former spouse shall acquire any right to inspect Company records, participate in management, or force a dissolution or liquidation of the Company.</li>
+      <li><strong>Spousal Consent &amp; California Community Property Waiver:</strong> Each married Transferee (or Transferee in a registered domestic partnership) residing in California or any other community property jurisdiction shall cause their spouse or domestic partner to execute the <strong>Spousal Consent</strong> attached hereto as <strong>Exhibit B</strong>, confirming that the Transferee’s membership interest is bound by all transfer, non-voting, and governance restrictions of this Agreement and waiving any claim to exercise management or voting control under California Family Code Section 1100 or analogous statutes.</li>
+    </ul>
+
+    <h2>12. Limitation of Fiduciary Duties, Corporate Opportunity Waiver &amp; Indemnification</h2>
+    <ul>
+      <li><strong>Modification of Fiduciary Duties (805 ILCS 180/15-5):</strong> To the fullest extent permitted by Section 15-5 of the Illinois Limited Liability Company Act (805 ILCS 180/15-5), the fiduciary duties of the Managing Member and voting Members to the Non-Voting Transferees are hereby restricted and limited strictly to the implied contractual covenant of good faith and fair dealing. Neither the Managing Member nor any voting Member shall be personally liable to the Company or any Transferee for monetary damages for any act or omission taken in good faith on behalf of the Company, except for acts involving intentional fraud, willful misconduct, or a knowing violation of criminal law.</li>
+      <li><strong>Waiver of Corporate Opportunity Doctrine:</strong> Pursuant to 805 ILCS 180/15-5(c)(2), the Transferees expressly acknowledge that the Managing Member and voting Members own, manage, advise, and participate in other businesses, software ventures, civic organizations, and charitable foundations (including, without limitation, separate consulting engagements, non-profit entities, and open-source civic projects). The doctrine of corporate opportunity is hereby <strong>irrevocably waived</strong>, and neither the Managing Member nor any voting Member shall have any obligation to present any business opportunity to the Company or any Transferee, nor shall any Transferee have any claim to share in the revenues or profits of any outside venture.</li>
+      <li><strong>Company Indemnification:</strong> The Company shall indemnify, defend, and hold harmless the Managing Member, voting Members, and Partnership Representative from and against any and all claims, liabilities, damages, judgments, and reasonable attorneys’ fees arising out of or relating to their management of the Company or administration of this Agreement, to the maximum extent permitted under 805 ILCS 180/15-7.</li>
+    </ul>
+
+    <h2>13. Enforcement, Payment Schedule &amp; Remedies for Transferor Financial Obligations</h2>
+    <ul>
+      <li><strong>Payment Deadline &amp; Verification:</strong> With respect to the financial obligations set forth in <strong>Article 8</strong>, the Company shall deliver to <strong>Ellen Amanda Allt</strong> a written statement itemizing the advanced cellular telecommunications charges within fifteen (15) days following the effective date of transfer of billing responsibility. Transferor shall pay the <strong>$3,769.00</strong> principal debt and the itemized telecommunications reimbursement in full within <strong>sixty (60) days</strong> of the effective date of this Agreement (unless a written installment schedule is mutually executed by the Managing Member and Transferor).</li>
+      <li><strong>Remedies Upon Default &amp; Fee Shifting:</strong> In the event Transferor fails to timely pay any portion of the obligations due under Article 8, the unpaid balance shall accrue simple interest at the Illinois statutory judgment rate of nine percent (9%) per annum (735 ILCS 5/2-1303) from the due date until paid in full, and Cornelius Codes LLC shall be entitled to recover from Transferor all reasonable attorneys’ fees, court costs, and collection expenses incurred in enforcing Article 8 in the Circuit Court of Cook County, Illinois.</li>
+      <li><strong>No Set-Off Against Transferees:</strong> Transferor’s default under Article 8 or Article 13 shall not invalidate, rescind, or reduce the 7.00% non-voting economic interests transferred to the seven (7) Transferees under Article 2, whose interests vest irrevocably upon satisfaction of the condition precedent in Article 14.</li>
+    </ul>
+
+    <h2>14. Condition Precedent: Mandatory Illinois Notary Public Execution</h2>
+    <ul>
+      <li><strong>No Legal Effect Prior to Illinois Notarization:</strong> Notwithstanding any signature, electronic execution, delivery, or courtesy copy transmission of this Agreement by any party, <strong>this Agreement shall not take effect, and no membership interest, economic right, debt release, NDA waiver, or obligation herein shall become operative or enforceable, unless and until this Agreement is duly acknowledged and notarized by a commissioned Notary Public of the State of Illinois</strong> in strict accordance with the Illinois Notary Public Act (5 ILCS 312/1-101 <em>et seq.</em>) and evidenced by the completed Illinois Notarial Certificate(s) attached hereto.</li>
+      <li><strong>Courtesy Copy Transmission:</strong> Any executed copy transmitted electronically prior to Illinois notarization shall be deemed a non-binding courtesy execution draft pending formal notarial acknowledgment under this Article 14.</li>
+    </ul>
+
+    <hr style="margin:24px 0;border:none;border-top:1px solid #9ca3af;" />
+
+    <p><strong>IN WITNESS WHEREOF</strong>, the parties have executed this Agreement as of the date first written above, subject to the mandatory Illinois notarization condition precedent set forth in Article 14.</p>
+
+    <div class="cc-sig-grid">
+      <div class="cc-sig-box">
+        <div class="cc-sig-header">Transferor</div>
+        <div class="cc-canvas-wrap">
+          <canvas id="ccCanvasTransferor" class="cc-canvas" width="340" height="85"></canvas>
+        </div>
+        <input type="text" id="ccTypedTransferor" class="cc-sig-typed" placeholder="Or type signature..." />
+        <div class="cc-sig-meta">
+          <span>Draw or type above</span>
+          <button type="button" class="cc-mini-btn" onclick="ccClearPad('ccCanvasTransferor','ccTypedTransferor')">Clear</button>
+        </div>
+        <div style="margin-top:8px;font-size:13px;">
+          <strong>Ellen Amanda Allt</strong><br />
+          Date: <input type="text" id="ccDateTransferor" class="cc-input" style="min-width:95px;" placeholder="MM/DD/YYYY" />
+        </div>
+      </div>
+
+      <div class="cc-sig-box">
+        <div class="cc-sig-header">Company &amp; Managing Member Consent</div>
+        <div class="cc-canvas-wrap">
+          <canvas id="ccCanvasCompany" class="cc-canvas" width="340" height="85"></canvas>
+        </div>
+        <input type="text" id="ccTypedCompany" class="cc-sig-typed" placeholder="Or type signature..." />
+        <div class="cc-sig-meta">
+          <span>Draw or type above</span>
+          <button type="button" class="cc-mini-btn" onclick="ccClearPad('ccCanvasCompany','ccTypedCompany')">Clear</button>
+        </div>
+        <div style="margin-top:8px;font-size:13px;">
+          <strong>CORNELIUS CODES LLC</strong> (IL SOS No. 13382174)<br />
+          By: <strong>Adam Edward Cornelius</strong>, Managing Member<br />
+          Date: <input type="text" id="ccDateCompany" class="cc-input" style="min-width:95px;" placeholder="MM/DD/YYYY" />
+        </div>
+      </div>
+    </div>
+
+    <h2>Exhibit A: Schedule of Non-Voting Transferees</h2>
+    <p style="font-size:13px;margin-bottom:8px;">
+      <em>Total Distributed: <strong>49.00%</strong> &bull; Shares (<code>X</code>): <strong>7 Equal Shares</strong> &bull; Equal Share per Transferee: <strong>7.00%</strong></em>
+    </p>
+
+    <table id="ccTransfereeTable">
+      <thead>
+        <tr>
+          <th style="width:5%;">#</th>
+          <th style="width:28%;">Transferee Full Name / Designation</th>
+          <th style="width:27%;">Email / Mailing Address</th>
+          <th style="width:12%;">Share %</th>
+          <th style="width:28%;">Transferee Signature &amp; Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><strong>Frankie S.</strong><br /><input type="text" class="cc-tbl-input" placeholder="Full Legal Last Name" /></td>
+          <td><input type="text" class="cc-tbl-input" placeholder="Email / Address" /></td>
+          <td><strong>7.00%</strong></td>
+          <td><input type="text" class="cc-tbl-sig" placeholder="Sign & Date" /></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><strong>Nate Gross</strong></td>
+          <td><input type="text" class="cc-tbl-input" placeholder="Email / Address" /></td>
+          <td><strong>7.00%</strong></td>
+          <td><input type="text" class="cc-tbl-sig" placeholder="Sign & Date" /></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><strong>Sarta J</strong> [redacted]</td>
+          <td><input type="text" class="cc-tbl-input" placeholder="Email / Address" /></td>
+          <td><strong>7.00%</strong></td>
+          <td><input type="text" class="cc-tbl-sig" placeholder="Sign & Date" /></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><strong>Taha Husain</strong></td>
+          <td><input type="text" class="cc-tbl-input" placeholder="Email / Address" /></td>
+          <td><strong>7.00%</strong></td>
+          <td><input type="text" class="cc-tbl-sig" placeholder="Sign & Date" /></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><strong>Tamera</strong> [redacted]</td>
+          <td><input type="text" class="cc-tbl-input" placeholder="Email / Address" /></td>
+          <td><strong>7.00%</strong></td>
+          <td><input type="text" class="cc-tbl-sig" placeholder="Sign & Date" /></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><strong>Edwin Chalas Cuevas</strong></td>
+          <td><input type="text" class="cc-tbl-input" placeholder="Email / Address" /></td>
+          <td><strong>7.00%</strong></td>
+          <td><input type="text" class="cc-tbl-sig" placeholder="Sign & Date" /></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><strong>Firstfruits &amp; Tithe Charitable Share</strong><br /><span style="font-size:11px;color:#4b5563;">(Appropriated by Majority Vote of Voting Ownership)</span></td>
+          <td>4601 N Paulina St, Ste 402, Chicago, IL 60640</td>
+          <td><strong>7.00%</strong></td>
+          <td><em>(Administered by Managing Member)</em></td>
+        </tr>
+        <tr>
+          <td><strong>Total</strong></td>
+          <td><strong>7 Equal Shares</strong></td>
+          <td>—</td>
+          <td><strong>49.00%</strong></td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Exhibit B: Spousal / Domestic Partner Consent (For Married Transferees)</h2>
+    <p style="font-size:13px;">
+      I, the undersigned spouse or registered domestic partner of a Transferee listed on <strong>Exhibit A</strong>, hereby acknowledge that I have read and understand the foregoing <strong>Membership Interest Transfer and Joinder Agreement</strong> of <strong>Cornelius Codes LLC</strong>. To the extent I possess any marital, community property (including under California Family Code &sect; 760 and &sect; 1100), or quasi-community property interest in the non-voting economic membership interest acquired by my spouse or partner, I irrevocably consent to all terms, transfer restrictions, Right of First Refusal provisions, and non-voting governance terms of this Agreement and agree that my spouse or partner shall have sole authority to act with respect to such membership interest.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:28%;">Transferee Name</th>
+          <th style="width:28%;">Spouse / Partner Printed Name</th>
+          <th style="width:28%;">Spouse / Partner Signature</th>
+          <th style="width:16%;">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="text" class="cc-tbl-input" placeholder="Transferee Name" /></td>
+          <td><input type="text" class="cc-tbl-input" placeholder="Spouse / Partner Name" /></td>
+          <td><input type="text" class="cc-tbl-sig" placeholder="Spouse Signature" /></td>
+          <td><input type="text" class="cc-tbl-input" placeholder="MM/DD/YYYY" /></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="cc-notary">
+      <div class="cc-notary-title">State of Illinois Notary Public Acknowledgment (Condition Precedent — 5 ILCS 312/6-105)</div>
+      <p style="font-size:13px;margin-bottom:8px;">
+        <strong>STATE OF ILLINOIS</strong><br />
+        <strong>COUNTY OF COOK</strong> &nbsp;&nbsp;) ss.
+      </p>
+      <p style="font-size:13px;margin-bottom:10px;">
+        This instrument was acknowledged before me on this ______ day of ____________________, 20____, by
+        <strong>Ellen Amanda Allt</strong> (Transferor), <strong>Adam Edward Cornelius</strong> (Managing Member of Cornelius Codes LLC),
+        and/or the undersigned Transferee(s): __________________________________________________________________,
+        personally known to me or proved to me on the basis of satisfactory evidence to be the person(s) whose name(s) is/are subscribed to the within instrument, who acknowledged that they executed the same as their free and voluntary act and deed for the uses and purposes therein set forth.
+      </p>
+      <div class="cc-notary-grid">
+        <div style="font-size:13px;line-height:2;">
+          __________________________________________________<br />
+          <strong>Signature of Notary Public, State of Illinois</strong><br />
+          Printed Name of Notary: _____________________________<br />
+          My Commission Expires: ____________________________
+        </div>
+        <div class="cc-seal-box">[AFFIX OFFICIAL ILLINOIS<br />NOTARY PUBLIC SEAL HERE]</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      function initPad(id) {
+        var canvas = document.getElementById(id);
+        if (!canvas) return;
+        var ctx = canvas.getContext("2d");
+        ctx.strokeStyle = "#0f172a";
+        ctx.lineWidth = 2;
+        ctx.lineCap = "round";
+        var drawing = false;
+
+        function pos(e) {
+          var r = canvas.getBoundingClientRect();
+          var cx = e.touches ? e.touches[0].clientX : e.clientX;
+          var cy = e.touches ? e.touches[0].clientY : e.clientY;
+          return { x: (cx - r.left) * (canvas.width / r.width), y: (cy - r.top) * (canvas.height / r.height) };
+        }
+
+        canvas.addEventListener("mousedown", function (e) { drawing = true; var p = pos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); });
+        canvas.addEventListener("mousemove", function (e) { if (!drawing) return; var p = pos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); });
+        window.addEventListener("mouseup", function () { drawing = false; });
+
+        canvas.addEventListener("touchstart", function (e) { drawing = true; var p = pos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); e.preventDefault(); }, { passive: false });
+        canvas.addEventListener("touchmove", function (e) { if (!drawing) return; var p = pos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); e.preventDefault(); }, { passive: false });
+        canvas.addEventListener("touchend", function () { drawing = false; });
+      }
+
+      window.ccClearPad = function (cId, tId) {
+        var c = document.getElementById(cId);
+        if (c) c.getContext("2d").clearRect(0, 0, c.width, c.height);
+        var t = document.getElementById(tId);
+        if (t) t.value = "";
+      };
+
+      window.ccDownloadHtml = function () {
+        var root = document.getElementById("cc-llc-agreement");
+        root.querySelectorAll("input").forEach(function (inp) { inp.setAttribute("value", inp.value); });
+        var clone = root.cloneNode(true);
+        ["ccCanvasTransferor", "ccCanvasCompany"].forEach(function (id) {
+          var orig = document.getElementById(id);
+          var cClone = clone.querySelector("#" + id);
+          if (orig && cClone) {
+            var img = document.createElement("img");
+            img.src = orig.toDataURL("image/png");
+            img.style.width = "100%";
+            img.style.height = "85px";
+            img.style.objectFit = "contain";
+            cClone.parentNode.replaceChild(img, cClone);
+          }
+        });
+        var doc = "<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Cornelius Codes LLC Signed Agreement</title></head><body>" + clone.outerHTML + "</body></html>";
+        var a = document.createElement("a");
+        a.href = URL.createObjectURL(new Blob([doc], { type: "text/html;charset=utf-8" }));
+        a.download = "Cornelius_Codes_LLC_Signed_Agreement.html";
+        a.click();
+      };
+
+      window.ccEmailCopy = function () {
+        var to = (document.getElementById("ccCourtesyEmail").value || "a@pocz.cc").trim();
+        var dt = document.getElementById("ccEffDate").value || "[Undated]";
+        var tSig = document.getElementById("ccTypedTransferor").value || "[Drawn/Pending]";
+        var tDt = document.getElementById("ccDateTransferor").value || "[Not dated]";
+        var cSig = document.getElementById("ccTypedCompany").value || "[Drawn/Pending]";
+        var cDt = document.getElementById("ccDateCompany").value || "[Not dated]";
+
+        var lines = [];
+        document.querySelectorAll("#ccTransfereeTable tbody tr").forEach(function (tr, i) {
+          if (i < 6) {
+            var td = tr.querySelectorAll("td");
+            var nm = td[1].innerText.trim().replace(/\s+/g, " ");
+            var last = td[1].querySelector("input");
+            if (last && last.value) nm += " " + last.value;
+            var ct = (td[2].querySelector("input") || {}).value || "[No contact]";
+            var sg = (td[4].querySelector("input") || {}).value || "[Unsigned]";
+            lines.push("- #" + (i + 1) + ": " + nm + " | " + ct + " | Sig: " + sg);
+          }
+        });
+
+        var subj = encodeURIComponent("Courtesy Copy: Cornelius Codes LLC Membership Transfer Agreement (" + dt + ")");
+        var body = encodeURIComponent([
+          "COURTESY EXECUTION COPY — CORNELIUS CODES LLC (IL SOS No. 13382174)",
+          "Agreement Date: " + dt,
+          "Transferor (Ellen Amanda Allt): " + tSig + " (" + tDt + ")",
+          "Managing Member (Adam Edward Cornelius): " + cSig + " (" + cDt + ")",
+          "",
+          "Exhibit A Transferees (7.00% Each):",
+          lines.join("\n"),
+          "- #7: Firstfruits & Tithe Charitable Share (7.00%)",
+          "",
+          "CONDITION PRECEDENT (ARTICLE 14): This Agreement does NOT take effect until duly notarized by an Illinois Notary Public (5 ILCS 312/).",
+          "[Attach the downloaded HTML or printed PDF copy before sending.]"
+        ].join("\n"));
+
+        window.location.href = "mailto:" + encodeURIComponent(to) + "?subject=" + subj + "&body=" + body;
+      };
+
+      initPad("ccCanvasTransferor");
+      initPad("ccCanvasCompany");
+    })();
+  </script>
+</div>
