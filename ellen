@@ -5,17 +5,22 @@
     }
 
     #cc-llc-agreement {
-      max-width: 860px;
+      max-width: 880px;
       margin: 0 auto;
       background: #ffffff;
       color: #111827;
       font-family: "Georgia", "Times New Roman", Times, serif;
       font-size: 15px;
-      line-height: 1.6;
+      line-height: 1.65;
       border: 1px solid #d1d5db;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.06);
     }
 
+    /* Sticky Action & Quick-Jump Toolbar */
     #cc-llc-agreement .cc-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 999;
       background: #0f172a;
       color: #ffffff;
       padding: 10px 16px;
@@ -28,25 +33,25 @@
       font-size: 13px;
     }
 
-    #cc-llc-agreement .cc-toolbar-title {
-      font-weight: 700;
-    }
-
-    #cc-llc-agreement .cc-toolbar-controls {
+    #cc-llc-agreement .cc-toolbar-group {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 8px;
     }
 
+    #cc-llc-agreement .cc-toolbar select,
     #cc-llc-agreement .cc-toolbar input[type="email"] {
-      padding: 5px 9px;
+      padding: 6px 9px;
       border-radius: 4px;
       border: 1px solid #475569;
       background: #1e293b;
       color: #ffffff;
-      font-size: 13px;
-      width: 195px;
+      font-size: 12.5px;
+    }
+
+    #cc-llc-agreement .cc-toolbar input[type="email"] {
+      width: 205px;
     }
 
     #cc-llc-agreement .cc-btn {
@@ -56,6 +61,7 @@
       font-weight: 600;
       font-size: 12.5px;
       cursor: pointer;
+      transition: background 0.15s ease;
     }
 
     #cc-llc-agreement .cc-btn-sec { background: #334155; color: #f8fafc; }
@@ -76,8 +82,19 @@
       font-weight: 600;
     }
 
+    #cc-llc-agreement .cc-feedback {
+      display: none;
+      background: #ecfdf5;
+      border-bottom: 1px solid #10b981;
+      color: #065f46;
+      padding: 10px 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
     #cc-llc-agreement .cc-body {
-      padding: 36px 42px;
+      padding: 38px 44px;
     }
 
     #cc-llc-agreement h1 {
@@ -100,9 +117,10 @@
 
     #cc-llc-agreement h2 {
       font-size: 16px;
-      margin: 22px 0 8px 0;
+      margin: 24px 0 8px 0;
       border-bottom: 1px solid #d1d5db;
       padding-bottom: 3px;
+      page-break-after: avoid;
     }
 
     #cc-llc-agreement p {
@@ -127,10 +145,25 @@
       font-family: inherit;
       font-size: inherit;
       color: #111827;
-      padding: 1px 6px;
-      min-width: 125px;
+      padding: 2px 6px;
+      min-width: 130px;
     }
 
+    #cc-llc-agreement .cc-input:focus,
+    #cc-llc-agreement .cc-tbl-input:focus,
+    #cc-llc-agreement .cc-tbl-sig:focus,
+    #cc-llc-agreement .cc-sig-typed:focus {
+      outline: none;
+      background: #eff6ff;
+      border-color: #2563eb;
+    }
+
+    #cc-llc-agreement .cc-highlight {
+      box-shadow: 0 0 0 3px #60a5fa !important;
+      transition: box-shadow 0.3s ease;
+    }
+
+    /* Signature Cards */
     #cc-llc-agreement .cc-sig-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -139,22 +172,26 @@
     }
 
     #cc-llc-agreement .cc-sig-box {
-      border: 1px solid #d1d5db;
-      background: #f9fafb;
-      padding: 12px;
-      border-radius: 4px;
+      border: 1px solid #cbd5e1;
+      background: #f8fafc;
+      padding: 14px;
+      border-radius: 5px;
+      page-break-inside: avoid;
     }
 
     #cc-llc-agreement .cc-sig-header {
       font-weight: bold;
       font-size: 13px;
       text-transform: uppercase;
+      letter-spacing: 0.03em;
       margin-bottom: 6px;
+      color: #0f172a;
     }
 
     #cc-llc-agreement .cc-canvas-wrap {
       background: #ffffff;
-      border: 1px dashed #9ca3af;
+      border: 1px dashed #94a3b8;
+      border-radius: 3px;
       margin-bottom: 6px;
     }
 
@@ -168,7 +205,8 @@
 
     #cc-llc-agreement .cc-sig-typed {
       width: 100%;
-      border: 1px solid #d1d5db;
+      border: 1px solid #cbd5e1;
+      border-radius: 3px;
       padding: 5px 8px;
       font-family: "Brush Script MT", "Lucida Handwriting", cursive;
       font-size: 20px;
@@ -186,14 +224,19 @@
     }
 
     #cc-llc-agreement .cc-mini-btn {
-      background: #e5e7eb;
-      border: 1px solid #d1d5db;
+      background: #e2e8f0;
+      border: 1px solid #cbd5e1;
       border-radius: 3px;
       padding: 2px 8px;
       font-size: 11px;
       cursor: pointer;
     }
 
+    #cc-llc-agreement .cc-mini-btn:hover {
+      background: #cbd5e1;
+    }
+
+    /* Tables */
     #cc-llc-agreement table {
       width: 100%;
       border-collapse: collapse;
@@ -203,18 +246,20 @@
 
     #cc-llc-agreement th, #cc-llc-agreement td {
       border: 1px solid #9ca3af;
-      padding: 7px;
+      padding: 7px 8px;
       text-align: left;
       vertical-align: middle;
     }
 
     #cc-llc-agreement th {
-      background: #f3f4f6;
+      background: #f1f5f9;
+      font-weight: bold;
     }
 
     #cc-llc-agreement .cc-tbl-input {
       width: 100%;
-      border: 1px solid #d1d5db;
+      border: 1px solid #cbd5e1;
+      border-radius: 3px;
       padding: 4px 6px;
       font-family: inherit;
       font-size: 12.5px;
@@ -224,18 +269,30 @@
     #cc-llc-agreement .cc-tbl-sig {
       width: 100%;
       border: none;
-      border-bottom: 1px solid #4b5563;
+      border-bottom: 1px solid #475569;
       font-family: "Brush Script MT", "Lucida Handwriting", cursive;
       font-size: 18px;
       padding: 2px 4px;
       background: #f8fafc;
     }
 
+    #cc-llc-agreement .cc-helper-note {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 12px;
+      color: #334155;
+      background: #f1f5f9;
+      padding: 7px 10px;
+      border-left: 3px solid #2563eb;
+      margin-bottom: 10px;
+    }
+
+    /* Notary Block */
     #cc-llc-agreement .cc-notary {
       border: 2px solid #1f2937;
       background: #fafafa;
       padding: 16px 18px;
       margin-top: 24px;
+      page-break-inside: avoid;
     }
 
     #cc-llc-agreement .cc-notary-title {
@@ -269,24 +326,53 @@
       padding: 6px;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 720px) {
       #cc-llc-agreement .cc-body { padding: 20px; }
       #cc-llc-agreement .cc-sig-grid, #cc-llc-agreement .cc-notary-grid { grid-template-columns: 1fr; }
+      #cc-llc-agreement .cc-toolbar input[type="email"] { width: 100%; }
     }
 
     @media print {
-      #cc-llc-agreement { border: none; max-width: 100%; }
-      #cc-llc-agreement .cc-toolbar, #cc-llc-agreement .cc-banner, #cc-llc-agreement .cc-mini-btn, #cc-llc-agreement .cc-sig-meta span { display: none !important; }
+      #cc-llc-agreement { border: none; box-shadow: none; max-width: 100%; }
+      #cc-llc-agreement .cc-toolbar,
+      #cc-llc-agreement .cc-banner,
+      #cc-llc-agreement .cc-feedback,
+      #cc-llc-agreement .cc-mini-btn,
+      #cc-llc-agreement .cc-sig-meta span,
+      #cc-llc-agreement .cc-helper-note {
+        display: none !important;
+      }
       #cc-llc-agreement .cc-body { padding: 0; }
-      #cc-llc-agreement .cc-input, #cc-llc-agreement .cc-tbl-input, #cc-llc-agreement .cc-tbl-sig, #cc-llc-agreement .cc-sig-typed { background: transparent !important; }
+      #cc-llc-agreement .cc-input,
+      #cc-llc-agreement .cc-tbl-input,
+      #cc-llc-agreement .cc-tbl-sig,
+      #cc-llc-agreement .cc-sig-typed {
+        background: transparent !important;
+      }
     }
   </style>
 
   <div class="cc-toolbar">
-    <div class="cc-toolbar-title">Cornelius Codes LLC — Execution &amp; Courtesy Copy</div>
-    <div class="cc-toolbar-controls">
-      <label for="ccCourtesyEmail" style="font-size:12px;color:#cbd5e1;">Courtesy Copy:</label>
-      <input type="email" id="ccCourtesyEmail" value="a@pocz.cc" placeholder="recipient@example.com" />
+    <div class="cc-toolbar-group">
+      <label for="ccJumpSelect" style="font-size:12px;color:#cbd5e1;">Jump to:</label>
+      <select id="ccJumpSelect" onchange="ccJumpTo(this.value)">
+        <option value="">Select Signer / Section...</option>
+        <option value="#ccBoxTransferor">Transferor (Ellen Amanda Allt)</option>
+        <option value="#ccBoxCompany">Managing Member (Adam E. Cornelius)</option>
+        <option value="#ccRow1">Exhibit A — #1 Frankie S.</option>
+        <option value="#ccRow2">Exhibit A — #2 Nate Gross</option>
+        <option value="#ccRow3">Exhibit A — #3 Sarta J</option>
+        <option value="#ccRow4">Exhibit A — #4 Taha Husain</option>
+        <option value="#ccRow5">Exhibit A — #5 Tamera</option>
+        <option value="#ccRow6">Exhibit A — #6 Edwin Chalas Cuevas</option>
+        <option value="#ccExhibitB">Exhibit B — Spousal Consent</option>
+        <option value="#ccNotaryBlock">Illinois Notary Acknowledgment</option>
+      </select>
+    </div>
+
+    <div class="cc-toolbar-group">
+      <label for="ccCourtesyEmail" style="font-size:12px;color:#cbd5e1;">Send Copy To:</label>
+      <input type="email" id="ccCourtesyEmail" value="adamecornelius@gmail.com" placeholder="recipient@example.com" />
       <button type="button" class="cc-btn cc-btn-sec" onclick="window.print()">Print / PDF</button>
       <button type="button" class="cc-btn cc-btn-pri" onclick="ccDownloadHtml()">Download Copy</button>
       <button type="button" class="cc-btn cc-btn-suc" onclick="ccEmailCopy()">Email Courtesy Copy</button>
@@ -296,6 +382,8 @@
   <div class="cc-banner">
     CONDITION PRECEDENT: Per Article 14, this Agreement shall NOT take effect until duly acknowledged and notarized by a commissioned Illinois Notary Public (5 ILCS 312/).
   </div>
+
+  <div id="ccFeedbackBox" class="cc-feedback"></div>
 
   <div class="cc-body">
     <h1>Membership Interest Transfer and Joinder Agreement</h1>
@@ -430,28 +518,28 @@
     <p><strong>IN WITNESS WHEREOF</strong>, the parties have executed this Agreement as of the date first written above, subject to the mandatory Illinois notarization condition precedent set forth in Article 14.</p>
 
     <div class="cc-sig-grid">
-      <div class="cc-sig-box">
+      <div class="cc-sig-box" id="ccBoxTransferor">
         <div class="cc-sig-header">Transferor</div>
         <div class="cc-canvas-wrap">
-          <canvas id="ccCanvasTransferor" class="cc-canvas" width="340" height="85"></canvas>
+          <canvas id="ccCanvasTransferor" class="cc-canvas"></canvas>
         </div>
-        <input type="text" id="ccTypedTransferor" class="cc-sig-typed" placeholder="Or type signature..." />
+        <input type="text" id="ccTypedTransferor" class="cc-sig-typed" placeholder="Or type signature..." oninput="ccAutoDate('ccDateTransferor')" />
         <div class="cc-sig-meta">
           <span>Draw or type above</span>
           <button type="button" class="cc-mini-btn" onclick="ccClearPad('ccCanvasTransferor','ccTypedTransferor')">Clear</button>
         </div>
         <div style="margin-top:8px;font-size:13px;">
           <strong>Ellen Amanda Allt</strong><br />
-          Date: <input type="text" id="ccDateTransferor" class="cc-input" style="min-width:95px;" placeholder="MM/DD/YYYY" />
+          Date: <input type="text" id="ccDateTransferor" class="cc-input" style="min-width:105px;" placeholder="MM/DD/YYYY" />
         </div>
       </div>
 
-      <div class="cc-sig-box">
+      <div class="cc-sig-box" id="ccBoxCompany">
         <div class="cc-sig-header">Company &amp; Managing Member Consent</div>
         <div class="cc-canvas-wrap">
-          <canvas id="ccCanvasCompany" class="cc-canvas" width="340" height="85"></canvas>
+          <canvas id="ccCanvasCompany" class="cc-canvas"></canvas>
         </div>
-        <input type="text" id="ccTypedCompany" class="cc-sig-typed" placeholder="Or type signature..." />
+        <input type="text" id="ccTypedCompany" class="cc-sig-typed" placeholder="Or type signature..." oninput="ccAutoDate('ccDateCompany')" />
         <div class="cc-sig-meta">
           <span>Draw or type above</span>
           <button type="button" class="cc-mini-btn" onclick="ccClearPad('ccCanvasCompany','ccTypedCompany')">Clear</button>
@@ -459,12 +547,15 @@
         <div style="margin-top:8px;font-size:13px;">
           <strong>CORNELIUS CODES LLC</strong> (IL SOS No. 13382174)<br />
           By: <strong>Adam Edward Cornelius</strong>, Managing Member<br />
-          Date: <input type="text" id="ccDateCompany" class="cc-input" style="min-width:95px;" placeholder="MM/DD/YYYY" />
+          Date: <input type="text" id="ccDateCompany" class="cc-input" style="min-width:105px;" placeholder="MM/DD/YYYY" />
         </div>
       </div>
     </div>
 
     <h2>Exhibit A: Schedule of Non-Voting Transferees</h2>
+    <div class="cc-helper-note">
+      <strong>Collaborator Instructions:</strong> Locate your row below, enter your email or mailing address, and type your full name in the Signature box (today’s date will fill automatically). Then click <strong>Email Courtesy Copy</strong> in the top bar.
+    </div>
     <p style="font-size:13px;margin-bottom:8px;">
       <em>Total Distributed: <strong>49.00%</strong> &bull; Shares (<code>X</code>): <strong>7 Equal Shares</strong> &bull; Equal Share per Transferee: <strong>7.00%</strong></em>
     </p>
@@ -472,74 +563,84 @@
     <table id="ccTransfereeTable">
       <thead>
         <tr>
-          <th style="width:5%;">#</th>
-          <th style="width:28%;">Transferee Full Name / Designation</th>
-          <th style="width:27%;">Email / Mailing Address</th>
-          <th style="width:12%;">Share %</th>
-          <th style="width:28%;">Transferee Signature &amp; Date</th>
+          <th style="width:4%;">#</th>
+          <th style="width:24%;">Transferee Full Name</th>
+          <th style="width:25%;">Email / Mailing Address</th>
+          <th style="width:9%;">Share</th>
+          <th style="width:24%;">Signature</th>
+          <th style="width:14%;">Date</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr id="ccRow1">
           <td>1</td>
           <td><strong>Frankie S.</strong><br /><input type="text" class="cc-tbl-input" placeholder="Full Legal Last Name" /></td>
           <td><input type="text" class="cc-tbl-input" placeholder="Email / Address" /></td>
           <td><strong>7.00%</strong></td>
-          <td><input type="text" class="cc-tbl-sig" placeholder="Sign & Date" /></td>
+          <td><input type="text" class="cc-tbl-sig" placeholder="Type signature" oninput="ccAutoDate('ccDt1')" /></td>
+          <td><input type="text" id="ccDt1" class="cc-tbl-input" placeholder="MM/DD/YYYY" /></td>
         </tr>
-        <tr>
+        <tr id="ccRow2">
           <td>2</td>
           <td><strong>Nate Gross</strong></td>
           <td><input type="text" class="cc-tbl-input" placeholder="Email / Address" /></td>
           <td><strong>7.00%</strong></td>
-          <td><input type="text" class="cc-tbl-sig" placeholder="Sign & Date" /></td>
+          <td><input type="text" class="cc-tbl-sig" placeholder="Type signature" oninput="ccAutoDate('ccDt2')" /></td>
+          <td><input type="text" id="ccDt2" class="cc-tbl-input" placeholder="MM/DD/YYYY" /></td>
         </tr>
-        <tr>
+        <tr id="ccRow3">
           <td>3</td>
           <td><strong>Sarta J</strong> [redacted]</td>
           <td><input type="text" class="cc-tbl-input" placeholder="Email / Address" /></td>
           <td><strong>7.00%</strong></td>
-          <td><input type="text" class="cc-tbl-sig" placeholder="Sign & Date" /></td>
+          <td><input type="text" class="cc-tbl-sig" placeholder="Type signature" oninput="ccAutoDate('ccDt3')" /></td>
+          <td><input type="text" id="ccDt3" class="cc-tbl-input" placeholder="MM/DD/YYYY" /></td>
         </tr>
-        <tr>
+        <tr id="ccRow4">
           <td>4</td>
           <td><strong>Taha Husain</strong></td>
           <td><input type="text" class="cc-tbl-input" placeholder="Email / Address" /></td>
           <td><strong>7.00%</strong></td>
-          <td><input type="text" class="cc-tbl-sig" placeholder="Sign & Date" /></td>
+          <td><input type="text" class="cc-tbl-sig" placeholder="Type signature" oninput="ccAutoDate('ccDt4')" /></td>
+          <td><input type="text" id="ccDt4" class="cc-tbl-input" placeholder="MM/DD/YYYY" /></td>
         </tr>
-        <tr>
+        <tr id="ccRow5">
           <td>5</td>
           <td><strong>Tamera</strong> [redacted]</td>
           <td><input type="text" class="cc-tbl-input" placeholder="Email / Address" /></td>
           <td><strong>7.00%</strong></td>
-          <td><input type="text" class="cc-tbl-sig" placeholder="Sign & Date" /></td>
+          <td><input type="text" class="cc-tbl-sig" placeholder="Type signature" oninput="ccAutoDate('ccDt5')" /></td>
+          <td><input type="text" id="ccDt5" class="cc-tbl-input" placeholder="MM/DD/YYYY" /></td>
         </tr>
-        <tr>
+        <tr id="ccRow6">
           <td>6</td>
           <td><strong>Edwin Chalas Cuevas</strong></td>
           <td><input type="text" class="cc-tbl-input" placeholder="Email / Address" /></td>
           <td><strong>7.00%</strong></td>
-          <td><input type="text" class="cc-tbl-sig" placeholder="Sign & Date" /></td>
+          <td><input type="text" class="cc-tbl-sig" placeholder="Type signature" oninput="ccAutoDate('ccDt6')" /></td>
+          <td><input type="text" id="ccDt6" class="cc-tbl-input" placeholder="MM/DD/YYYY" /></td>
         </tr>
         <tr>
           <td>7</td>
           <td><strong>Firstfruits &amp; Tithe Charitable Share</strong><br /><span style="font-size:11px;color:#4b5563;">(Appropriated by Majority Vote of Voting Ownership)</span></td>
           <td>4601 N Paulina St, Ste 402, Chicago, IL 60640</td>
           <td><strong>7.00%</strong></td>
-          <td><em>(Administered by Managing Member)</em></td>
+          <td colspan="2"><em>(Administered by Managing Member)</em></td>
         </tr>
         <tr>
           <td><strong>Total</strong></td>
           <td><strong>7 Equal Shares</strong></td>
           <td>—</td>
           <td><strong>49.00%</strong></td>
-          <td>—</td>
+          <td colspan="2">—</td>
         </tr>
       </tbody>
     </table>
 
-    <h2>Exhibit B: Spousal / Domestic Partner Consent (For Married Transferees)</h2>
+    <h2 id="ccExhibitB">Exhibit B: Spousal / Domestic Partner Consent (For Married Transferees Only)</h2>
+    <div class="cc-helper-note">
+      <strong>Optional:</strong> Complete Exhibit B only if you are married or in a registered domestic partnership (especially if residing in California or another community property state). Unmarried Transferees may skip this section.
+    </div>
     <p style="font-size:13px;">
       I, the undersigned spouse or registered domestic partner of a Transferee listed on <strong>Exhibit A</strong>, hereby acknowledge that I have read and understand the foregoing <strong>Membership Interest Transfer and Joinder Agreement</strong> of <strong>Cornelius Codes LLC</strong>. To the extent I possess any marital, community property (including under California Family Code &sect; 760 and &sect; 1100), or quasi-community property interest in the non-voting economic membership interest acquired by my spouse or partner, I irrevocably consent to all terms, transfer restrictions, Right of First Refusal provisions, and non-voting governance terms of this Agreement and agree that my spouse or partner shall have sole authority to act with respect to such membership interest.
     </p>
@@ -557,13 +658,13 @@
         <tr>
           <td><input type="text" class="cc-tbl-input" placeholder="Transferee Name" /></td>
           <td><input type="text" class="cc-tbl-input" placeholder="Spouse / Partner Name" /></td>
-          <td><input type="text" class="cc-tbl-sig" placeholder="Spouse Signature" /></td>
-          <td><input type="text" class="cc-tbl-input" placeholder="MM/DD/YYYY" /></td>
+          <td><input type="text" class="cc-tbl-sig" placeholder="Spouse Signature" oninput="ccAutoDate('ccSpouseDt')" /></td>
+          <td><input type="text" id="ccSpouseDt" class="cc-tbl-input" placeholder="MM/DD/YYYY" /></td>
         </tr>
       </tbody>
     </table>
 
-    <div class="cc-notary">
+    <div class="cc-notary" id="ccNotaryBlock">
       <div class="cc-notary-title">State of Illinois Notary Public Acknowledgment (Condition Precedent — 5 ILCS 312/6-105)</div>
       <p style="font-size:13px;margin-bottom:8px;">
         <strong>STATE OF ILLINOIS</strong><br />
@@ -589,67 +690,138 @@
 
   <script>
     (function () {
-      function initPad(id) {
+      function todayStr() {
+        var d = new Date();
+        var mm = String(d.getMonth() + 1).padStart(2, "0");
+        var dd = String(d.getDate()).padStart(2, "0");
+        return mm + "/" + dd + "/" + d.getFullYear();
+      }
+
+      window.ccAutoDate = function (inputId) {
+        var el = document.getElementById(inputId);
+        if (el && !el.value.trim()) {
+          el.value = todayStr();
+        }
+      };
+
+      window.ccJumpTo = function (selector) {
+        if (!selector) return;
+        var target = document.querySelector(selector);
+        if (target) {
+          target.scrollIntoView({ behavior: "smooth", block: "center" });
+          target.classList.add("cc-highlight");
+          setTimeout(function () { target.classList.remove("cc-highlight"); }, 1800);
+        }
+      };
+
+      function initPad(id, dateId) {
         var canvas = document.getElementById(id);
         if (!canvas) return;
+        var dpr = Math.min(window.devicePixelRatio || 1, 2);
+        var rect = canvas.getBoundingClientRect();
+        var w = rect.width || 340;
+        var h = 85;
+        canvas.width = w * dpr;
+        canvas.height = h * dpr;
         var ctx = canvas.getContext("2d");
+        ctx.scale(dpr, dpr);
         ctx.strokeStyle = "#0f172a";
         ctx.lineWidth = 2;
         ctx.lineCap = "round";
-        var drawing = false;
+        ctx.lineJoin = "round";
 
+        var drawing = false;
         function pos(e) {
           var r = canvas.getBoundingClientRect();
           var cx = e.touches ? e.touches[0].clientX : e.clientX;
           var cy = e.touches ? e.touches[0].clientY : e.clientY;
-          return { x: (cx - r.left) * (canvas.width / r.width), y: (cy - r.top) * (canvas.height / r.height) };
+          return { x: cx - r.left, y: cy - r.top };
         }
 
-        canvas.addEventListener("mousedown", function (e) { drawing = true; var p = pos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); });
-        canvas.addEventListener("mousemove", function (e) { if (!drawing) return; var p = pos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); });
-        window.addEventListener("mouseup", function () { drawing = false; });
+        function start(e) {
+          drawing = true;
+          canvas.dataset.signed = "true";
+          ccAutoDate(dateId);
+          var p = pos(e);
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          if (e.cancelable) e.preventDefault();
+        }
 
-        canvas.addEventListener("touchstart", function (e) { drawing = true; var p = pos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); e.preventDefault(); }, { passive: false });
-        canvas.addEventListener("touchmove", function (e) { if (!drawing) return; var p = pos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); e.preventDefault(); }, { passive: false });
-        canvas.addEventListener("touchend", function () { drawing = false; });
+        function move(e) {
+          if (!drawing) return;
+          var p = pos(e);
+          ctx.lineTo(p.x, p.y);
+          ctx.stroke();
+          if (e.cancelable) e.preventDefault();
+        }
+
+        function end() { drawing = false; }
+
+        canvas.addEventListener("mousedown", start);
+        canvas.addEventListener("mousemove", move);
+        window.addEventListener("mouseup", end);
+        canvas.addEventListener("touchstart", start, { passive: false });
+        canvas.addEventListener("touchmove", move, { passive: false });
+        canvas.addEventListener("touchend", end);
       }
 
       window.ccClearPad = function (cId, tId) {
         var c = document.getElementById(cId);
-        if (c) c.getContext("2d").clearRect(0, 0, c.width, c.height);
+        if (c) {
+          var ctx = c.getContext("2d");
+          ctx.save();
+          ctx.setTransform(1, 0, 0, 1, 0, 0);
+          ctx.clearRect(0, 0, c.width, c.height);
+          ctx.restore();
+          delete c.dataset.signed;
+        }
         var t = document.getElementById(tId);
         if (t) t.value = "";
       };
 
-      window.ccDownloadHtml = function () {
+      window.ccDownloadHtml = function (silent) {
         var root = document.getElementById("cc-llc-agreement");
         root.querySelectorAll("input").forEach(function (inp) { inp.setAttribute("value", inp.value); });
         var clone = root.cloneNode(true);
         ["ccCanvasTransferor", "ccCanvasCompany"].forEach(function (id) {
           var orig = document.getElementById(id);
           var cClone = clone.querySelector("#" + id);
-          if (orig && cClone) {
+          if (orig && cClone && orig.dataset.signed === "true") {
             var img = document.createElement("img");
             img.src = orig.toDataURL("image/png");
+            img.alt = "Executed Signature";
             img.style.width = "100%";
             img.style.height = "85px";
             img.style.objectFit = "contain";
             cClone.parentNode.replaceChild(img, cClone);
           }
         });
+        var fb = clone.querySelector("#ccFeedbackBox");
+        if (fb) fb.style.display = "none";
         var doc = "<!DOCTYPE html><html><head><meta charset='UTF-8'><title>Cornelius Codes LLC Signed Agreement</title></head><body>" + clone.outerHTML + "</body></html>";
         var a = document.createElement("a");
         a.href = URL.createObjectURL(new Blob([doc], { type: "text/html;charset=utf-8" }));
         a.download = "Cornelius_Codes_LLC_Signed_Agreement.html";
+        document.body.appendChild(a);
         a.click();
+        document.body.removeChild(a);
+
+        if (!silent) {
+          var box = document.getElementById("ccFeedbackBox");
+          box.innerHTML = "<strong>Downloaded:</strong> <code>Cornelius_Codes_LLC_Signed_Agreement.html</code> saved to your device with your signatures preserved.";
+          box.style.display = "block";
+        }
       };
 
       window.ccEmailCopy = function () {
-        var to = (document.getElementById("ccCourtesyEmail").value || "a@pocz.cc").trim();
+        var to = (document.getElementById("ccCourtesyEmail").value || "adamecornelius@gmail.com").trim();
         var dt = document.getElementById("ccEffDate").value || "[Undated]";
-        var tSig = document.getElementById("ccTypedTransferor").value || "[Drawn/Pending]";
+        var tDrawn = document.getElementById("ccCanvasTransferor").dataset.signed === "true" ? "[Hand-Drawn Signature]" : "";
+        var tSig = document.getElementById("ccTypedTransferor").value || tDrawn || "[Unsigned]";
         var tDt = document.getElementById("ccDateTransferor").value || "[Not dated]";
-        var cSig = document.getElementById("ccTypedCompany").value || "[Drawn/Pending]";
+        var cDrawn = document.getElementById("ccCanvasCompany").dataset.signed === "true" ? "[Hand-Drawn Signature]" : "";
+        var cSig = document.getElementById("ccTypedCompany").value || cDrawn || "[Unsigned]";
         var cDt = document.getElementById("ccDateCompany").value || "[Not dated]";
 
         var lines = [];
@@ -661,9 +833,17 @@
             if (last && last.value) nm += " " + last.value;
             var ct = (td[2].querySelector("input") || {}).value || "[No contact]";
             var sg = (td[4].querySelector("input") || {}).value || "[Unsigned]";
-            lines.push("- #" + (i + 1) + ": " + nm + " | " + ct + " | Sig: " + sg);
+            var sd = (td[5].querySelector("input") || {}).value || "";
+            lines.push("- #" + (i + 1) + ": " + nm + " | " + ct + " | Sig: " + sg + (sd ? " (" + sd + ")" : ""));
           }
         });
+
+        // Automatically download the signed HTML file so the user can attach it
+        ccDownloadHtml(true);
+
+        var box = document.getElementById("ccFeedbackBox");
+        box.innerHTML = "<strong>Step 1 Complete:</strong> Your signed HTML copy (<code>Cornelius_Codes_LLC_Signed_Agreement.html</code>) just downloaded.<br /><strong>Step 2:</strong> Your email app is opening addressed to <strong>" + to + "</strong> — attach the downloaded file before hitting Send.";
+        box.style.display = "block";
 
         var subj = encodeURIComponent("Courtesy Copy: Cornelius Codes LLC Membership Transfer Agreement (" + dt + ")");
         var body = encodeURIComponent([
@@ -677,14 +857,14 @@
           "- #7: Firstfruits & Tithe Charitable Share (7.00%)",
           "",
           "CONDITION PRECEDENT (ARTICLE 14): This Agreement does NOT take effect until duly notarized by an Illinois Notary Public (5 ILCS 312/).",
-          "[Attach the downloaded HTML or printed PDF copy before sending.]"
+          "[Please attach the downloaded Cornelius_Codes_LLC_Signed_Agreement.html file before sending.]"
         ].join("\n"));
 
         window.location.href = "mailto:" + encodeURIComponent(to) + "?subject=" + subj + "&body=" + body;
       };
 
-      initPad("ccCanvasTransferor");
-      initPad("ccCanvasCompany");
+      initPad("ccCanvasTransferor", "ccDateTransferor");
+      initPad("ccCanvasCompany", "ccDateCompany");
     })();
   </script>
 </div>
